@@ -1,12 +1,9 @@
 import styled from 'styled-components'
 import Draggable from 'react-draggable'
 import { useRef } from 'react'
-import { WindowClose } from '../atoms/WindowClose'
-import { WindowMinimize } from '../atoms/WindowMinimize'
-import { WindowMaximize } from '../atoms/WindowMaximize'
+import { WindowHeader } from 'components/molecules/WindowHeader'
 
 const ProgramManagerComponent = styled.div`
-  display: grid;
   place-content: center;
   width: 400px;
   height:  400px;
@@ -23,12 +20,11 @@ export const ProgramManager = () => {
 
   return (
     <Draggable
-    nodeRef={nodeRef}
+    // nodeRef={nodeRef}
       onDrag={handlerDrag}
     >
       <ProgramManagerComponent>
-        <WindowMaximize />
-        <h1 ref={nodeRef}>move me!</h1>
+        <WindowHeader />
       </ProgramManagerComponent>
     </Draggable>
   )
