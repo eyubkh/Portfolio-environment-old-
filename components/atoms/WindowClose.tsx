@@ -5,7 +5,7 @@ const WindowCloseComponent = styled.div`
   position: relative;
   height: 18px;
   width: 18px;
-  border: solid 1px ${Black100};
+  border-right: solid 1px ${Black100};
   background-color: ${Grey200};
   cursor: pointer;
   display: block;

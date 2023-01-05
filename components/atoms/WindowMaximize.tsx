@@ -5,10 +5,9 @@ const WindowMaximizeComponent = styled.div`
   position: relative;
   height: 18px;
   width: 18px;
-  border: solid 1px ${Black100};
-  border-right: none;
   background-color: ${Grey200};
   cursor: pointer;
+  border-left: 1px solid ${Black100};
 
   :after {
     content: '';

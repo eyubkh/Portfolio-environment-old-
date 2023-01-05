@@ -5,7 +5,7 @@ const WindowMinimizeComponent = styled.div`
   position: relative;
   height: 18px;
   width: 18px;
-  border: 1px solid ${Black100};
+  border-left: 1px solid ${Black100};
   background-color: ${Grey200};
   cursor: pointer;
 
