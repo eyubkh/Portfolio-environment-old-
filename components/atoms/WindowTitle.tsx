@@ -1,7 +1,7 @@
 import { Black100, Blue100, White100 } from '@utils/tokens'
 import styled from 'styled-components'
 
-const WindowTitleComponent = styled.div`
+const WindowTitleComponent = styled.strong`
   display: grid;
   place-content: center;
   background-color: ${Blue100};
@@ -9,12 +9,11 @@ const WindowTitleComponent = styled.div`
   height: 18px;
   width: 100%;
   color: ${White100};
-  border: 1px solid ${Black100};
-  border-left: none;
-  border-right: none;
 
 `
 
 export const WindowTitle = () => {
-  return <WindowTitleComponent>default text</WindowTitleComponent>
+  return <WindowTitleComponent>
+    <h3>default text</h3>
+  </WindowTitleComponent>
 }

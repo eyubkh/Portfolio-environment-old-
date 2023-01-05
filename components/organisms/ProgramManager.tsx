@@ -2,12 +2,14 @@ import styled from 'styled-components'
 import Draggable from 'react-draggable'
 import { useRef } from 'react'
 import { WindowHeader } from 'components/molecules/WindowHeader'
+import { WindowSubHeader } from 'components/molecules/WindowSubHeader'
+import { White100 } from '@utils/tokens'
 
 const ProgramManagerComponent = styled.div`
   place-content: center;
   width: 400px;
   height:  400px;
-  background-color: red;
+  background-color: ${White100};
 `
 
 export const ProgramManager = () => {
@@ -19,13 +21,15 @@ export const ProgramManager = () => {
   } 
 
   return (
-    <Draggable
-    // nodeRef={nodeRef}
-      onDrag={handlerDrag}
-    >
-      <ProgramManagerComponent>
-        <WindowHeader />
-      </ProgramManagerComponent>
-    </Draggable>
+        <Draggable
+        handle='strong'
+        // nodeRef={nodeRef}
+          onDrag={handlerDrag}
+        > 
+          <ProgramManagerComponent>
+            <WindowHeader />
+            <WindowSubHeader />
+          </ProgramManagerComponent>
+        </Draggable> 
   )
 }
