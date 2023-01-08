@@ -8,9 +8,9 @@ type IconProps = {
 }
 
 export const Icon = ({ src = '/icons/COMMD001.png' }: IconProps): JSX.Element => {
-  return(
+  return (
     <IconComponent>
-      <Image 
+      <Image
         alt='icons'
         src={src}
         width={32}
