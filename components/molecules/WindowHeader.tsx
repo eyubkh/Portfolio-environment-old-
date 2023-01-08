@@ -10,12 +10,16 @@ const WindowHeaderComponent = styled.div`
   width: 100%;
   border: 1px solid ${Black100};
 `
-  
-export const WindowHeader = () => {
+
+interface PropsType {
+  title: string
+}
+
+export const WindowHeader = ({ title }: PropsType): JSX.Element => {
   return (
     <WindowHeaderComponent>
       <WindowClose />
-      <WindowTitle />
+      <WindowTitle title={title} />
       <WindowMaximize />
       <WindowMinimize />
     </WindowHeaderComponent>
