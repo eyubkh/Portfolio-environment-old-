@@ -1,21 +1,24 @@
-import Draggable from "react-draggable"
 import styled from "styled-components"
 import { Projects } from "./Projects"
-import { AboutMe } from "./AboutMe"
+import { IconAboutMe } from "./IconAboutMe"
 
 const WindowContentComponent = styled.div`
   height: 100%;
   width: 100%;
   background-color: red;
   overflow: hidden;
-
 `
 
-export const WindowContent = () => {
+interface PropsType {
+  children: JSX.Element
+}
+
+export const WindowContent = ({ children }: PropsType): JSX.Element => {
   return (
     <WindowContentComponent>
-        <Projects />
-        <AboutMe />
+      <Projects />
+      <IconAboutMe />
+      {children}
     </WindowContentComponent>
   )
 }
