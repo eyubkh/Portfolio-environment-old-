@@ -1,6 +1,4 @@
 import styled from "styled-components"
-import { Projects } from "./Projects"
-import { IconAboutMe } from "./IconAboutMe"
 
 const WindowContentComponent = styled.div`
   height: 100%;
@@ -10,14 +8,12 @@ const WindowContentComponent = styled.div`
 `
 
 interface PropsType {
-  children: JSX.Element
+  children: JSX.Element[] | JSX.Element
 }
 
 export const WindowContent = ({ children }: PropsType): JSX.Element => {
   return (
     <WindowContentComponent>
-      <Projects />
-      <IconAboutMe />
       {children}
     </WindowContentComponent>
   )
