@@ -5,7 +5,6 @@ export function Os() {
   return (
     <>
       <ProgramManager />
-      <ProgramManager />
     </>
   )
 }
