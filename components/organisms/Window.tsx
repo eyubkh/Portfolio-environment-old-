@@ -3,26 +3,28 @@ import { WindowHeader } from "components/molecules/WindowHeader"
 import { WindowSubHeader } from "components/molecules/WindowSubHeader"
 import Draggable from "react-draggable"
 import styled from "styled-components"
-import { Context, WindowProvider } from "context/windowContext"
+import { WindowContext } from "lib/windowContext"
 import { useContext } from "react"
 
 const WindowComponent = styled.div<any>`
-  width: 500px;
-  height: 300px;
-  display: ${props => props.isOpen ? 'grid' : 'none'};
+  width: ${props => props.isFullScreen ? '100vw' : '500px'};
+  height: ${props => props.isFullScreen ? '100vh' : '500px'};
+  display: ${props => props.isOpen ? 'inline-block' : 'none'};
 `
 
 interface PropsType {
-  children: JSX.Element,
+  children: JSX.Element[] | JSX.Element,
   title: string,
 }
 
 export const Window = ({ title, children }: PropsType): JSX.Element => {
-  const { state } = useContext(Context)
-  console.log('window', state)
+  const { state } = useContext(WindowContext)
   return (
     <Draggable handle="strong">
-      <WindowComponent isOpen={state?.isOpen}>
+      <WindowComponent
+        isOpen={state?.isOpen}
+        isFullScreen={state?.isFullScreen}
+      >
         <WindowHeader title={title} />
         <WindowSubHeader />
         <WindowContent>
