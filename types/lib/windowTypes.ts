@@ -10,4 +10,7 @@ export type WindowStateProps = {
   limited: boolean,
 }
 
-export type ActionProps = { type: ActionOptions, payload?: boolean }
+export type ActionProps = {
+  type: ActionOptions,
+  payload?: boolean
+}
