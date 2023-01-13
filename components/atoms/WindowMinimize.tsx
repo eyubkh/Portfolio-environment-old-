@@ -1,7 +1,8 @@
 import { Black100, Grey200 } from "@utils/tokens"
-import { ActionOptions, Context } from "context/windowContext"
+import { WindowContext } from "lib/windowContext"
 import { useContext } from "react"
 import styled from "styled-components"
+import { ActionOptions } from "types/lib/windowTypes"
 
 const WindowMinimizeComponent = styled.div`
   position: relative;
@@ -44,7 +45,7 @@ const WindowMinimizeComponent = styled.div`
 `
 
 export const WindowMinimize = (handler: any): JSX.Element => {
-  const { state, dispatch } = useContext(Context)
+  const { dispatch } = useContext(WindowContext)
 
   const handlerClick = (event: any) => {
     event.preventDefault()
