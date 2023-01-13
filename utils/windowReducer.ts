@@ -1,5 +1,5 @@
 import { Reducer } from 'react'
-import { WindowStateProps, ActionProps, ActionOptions } from 'types/context/windowTypes'
+import { WindowStateProps, ActionProps, ActionOptions } from 'types/lib/windowTypes'
 
 const windowReducer: Reducer<WindowStateProps, ActionProps> = (state, action) => {
   const { type, payload } = action
