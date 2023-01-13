@@ -7,7 +7,7 @@ import { WindowContext } from "lib/windowContext"
 import { useContext } from "react"
 
 const WindowComponent = styled.div<any>`
-  width: ${props => props.isFullScreen ? '100vw' : '500px'};
+  width: ${props => props.isFullScreen ? '100%' : '500px'};
   height: ${props => props.isFullScreen ? '100vh' : '500px'};
   display: ${props => props.isOpen ? 'inline-block' : 'none'};
 `
