@@ -10,7 +10,7 @@ const IconComponent = styled.div<any>`
   padding: 12px;
 
   p {
-    opacity: ${props => props.onDrag ? 0 : 1};
+    opacity: ${props => props.onDrag() ? 0 : 1};
   }
 `
 
@@ -24,10 +24,11 @@ export const Icon = ({ src, children }: IconTypes): JSX.Element => {
 
   return (
     <Draggable
+      bounds='parent'
       onStart={() => setOnDrag(true)}
       onStop={() => setOnDrag(false)}
     >
-      <IconComponent onDrag={onDrag}>
+      <IconComponent onDrag={() => onDrag}>
         <Image
           alt=''
           width={32}
