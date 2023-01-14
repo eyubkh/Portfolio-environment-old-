@@ -16,7 +16,7 @@ const WindowSubHeaderComponent = styled.div`
 `
 
 export const WindowSubHeader = () => {
-  return(
+  return (
     <WindowSubHeaderComponent>
       <h3>File</h3>
       <h3>Options</h3>
