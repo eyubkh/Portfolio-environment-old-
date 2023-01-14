@@ -4,9 +4,10 @@ import { WindowProvider } from 'lib/windowContext'
 import { IconProjects } from 'components/molecules/IconProjects'
 
 export const ProgramManager = () => {
+  const id = 'test'
   return (
     <WindowProvider>
-      <Window title='Program Manager'>
+      <Window id={id} title='Program Manager'>
         <IconAboutMe />
         <IconProjects />
       </Window>
