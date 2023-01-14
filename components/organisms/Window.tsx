@@ -4,9 +4,11 @@ import { WindowSubHeader } from "components/molecules/WindowSubHeader"
 import Draggable from "react-draggable"
 import styled from "styled-components"
 import { WindowContext } from "lib/windowContext"
-import { useContext } from "react"
+import { useContext, useEffect } from "react"
+import { WindowActionOptions } from "types/lib/windowTypes"
 
 const WindowComponent = styled.div<any>`
+  transform: translate(19px, 10px);
   width: ${props => props.isFullScreen ? '100%' : '500px'};
   height: ${props => props.isFullScreen ? '100vh' : '500px'};
   display: ${props => props.isOpen ? 'inline-block' : 'none'};
@@ -14,14 +16,36 @@ const WindowComponent = styled.div<any>`
 
 interface PropsType {
   children: JSX.Element[] | JSX.Element,
-  title: string,
+  title: string
 }
 
 export const Window = ({ title, children }: PropsType): JSX.Element => {
-  const { state } = useContext(WindowContext)
+  const { state, dispatch } = useContext(WindowContext)
+  useEffect(() => {
+    dispatch({
+      type: WindowActionOptions.ID
+    })
+  }, [])
+
+
+  const handlerOnControlledDrag = (event: any, possition: any) => {
+    const { x, y } = possition
+    dispatch({
+      type: WindowActionOptions.POSSITION,
+      payload: { x, y }
+    })
+  }
+
   return (
-    <Draggable handle="strong">
+    <Draggable
+      bounds={'parent'}
+      disabled={state?.isFullScreen}
+      handle="strong"
+      position={state?.possition}
+      onDrag={handlerOnControlledDrag}
+    >
       <WindowComponent
+        id={state?.id}
         isOpen={state?.isOpen}
         isFullScreen={state?.isFullScreen}
       >
