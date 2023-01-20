@@ -1,12 +1,12 @@
 export enum ProcessActionOptions {
-
+  PROCESS
 }
 
 export type ProcessActionProps = {
   type: ProcessActionOptions,
-  payload?: boolean
+  payload?: any
 }
 
 export type ProcessStateTypes = {
-
+  processes: string[]
 }
