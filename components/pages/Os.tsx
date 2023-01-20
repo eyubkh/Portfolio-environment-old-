@@ -1,5 +1,6 @@
 import styled from "styled-components"
 import { ProgramManager } from "../organisms/ProgramManager"
+import { ProcessProvider } from "lib/processContext"
 
 const OsComponent = styled.div<any>`
   height: 100vh;
@@ -7,8 +8,10 @@ const OsComponent = styled.div<any>`
 
 export function Os() {
   return (
-    <OsComponent>
-      <ProgramManager />
-    </OsComponent>
+    <ProcessProvider>
+      <OsComponent>
+        <ProgramManager />
+      </OsComponent>
+    </ProcessProvider>
   )
 }
