@@ -1,7 +1,9 @@
 import { Black100, Grey200 } from "@utils/tokens"
+import { ProcessContext } from "lib/processContext"
 import { WindowContext } from "lib/windowContext"
 import { useContext } from "react"
 import styled from "styled-components"
+import { ProcessActionOptions } from "types/lib/processTypes"
 import { WindowActionOptions } from "types/lib/windowTypes"
 
 const WindowMinimizeComponent = styled.div`
@@ -45,13 +47,20 @@ const WindowMinimizeComponent = styled.div`
 `
 
 export const WindowMinimize = (handler: any): JSX.Element => {
-  const { dispatch } = useContext(WindowContext)
+  const { state: stateWindow, dispatch } = useContext(WindowContext)
+  const { dispatch: dispatchProcess } = useContext(ProcessContext)
 
   const handlerClick = (event: any) => {
     event.preventDefault()
     if (dispatch) {
       dispatch({
-        type: WindowActionOptions.OPEN
+        // type: WindowActionOptions.OPEN
+      })
+    }
+    if (dispatchProcess) {
+      dispatchProcess({
+        type: ProcessActionOptions.PROCESS,
+        payload: stateWindow.id
       })
     }
   }
