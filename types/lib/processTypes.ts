@@ -1,5 +1,5 @@
 export enum ProcessActionOptions {
-  PROCESS
+  PROCESSES
 }
 
 export type ProcessActionProps = {
@@ -8,5 +8,5 @@ export type ProcessActionProps = {
 }
 
 export type ProcessStateTypes = {
-  processes: string[]
+  processes: JSX.Element[]
 }
