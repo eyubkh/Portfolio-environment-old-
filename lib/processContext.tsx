@@ -1,10 +1,11 @@
 import { processReducer } from "@utils/processReducer"
+import { ProgramManager } from "components/organisms/ProgramManager"
 import { Dispatch, createContext, useReducer } from "react"
 import { ChildrenType } from "types/global"
 import { ProcessActionOptions, ProcessStateTypes } from "types/lib/processTypes"
 
 const processInitialState: ProcessStateTypes = {
-  processes: []
+  processes: [<ProgramManager />]
 }
 
 export const ProcessContext = createContext<any>({ state: processInitialState } as {
