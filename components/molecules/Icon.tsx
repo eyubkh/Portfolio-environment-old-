@@ -16,10 +16,11 @@ const IconComponent = styled.div<any>`
 
 type IconTypes = {
   src: string,
-  children: string
+  children: string,
+  handler?: Function
 }
 
-export const Icon = ({ src, children }: IconTypes): JSX.Element => {
+export const Icon = ({ src, children, handler }: IconTypes): JSX.Element => {
   const [onDrag, setOnDrag] = useState(false)
 
   return (
@@ -28,7 +29,10 @@ export const Icon = ({ src, children }: IconTypes): JSX.Element => {
       onStart={() => setOnDrag(true)}
       onStop={() => setOnDrag(false)}
     >
-      <IconComponent onDrag={() => onDrag}>
+      <IconComponent
+        onDrag={() => onDrag}
+        onClick={handler}
+      >
         <Image
           alt=''
           width={32}
