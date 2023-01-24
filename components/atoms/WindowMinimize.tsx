@@ -48,19 +48,12 @@ const WindowMinimizeComponent = styled.div`
 
 export const WindowMinimize = (handler: any): JSX.Element => {
   const { state: stateWindow, dispatch } = useContext(WindowContext)
-  const { dispatch: dispatchProcess } = useContext(ProcessContext)
 
   const handlerClick = (event: any) => {
     event.preventDefault()
     if (dispatch) {
       dispatch({
-        // type: WindowActionOptions.OPEN
-      })
-    }
-    if (dispatchProcess) {
-      dispatchProcess({
-        type: ProcessActionOptions.PROCESS,
-        payload: stateWindow.id
+        type: WindowActionOptions.OPEN
       })
     }
   }

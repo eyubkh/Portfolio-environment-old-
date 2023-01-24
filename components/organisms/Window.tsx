@@ -6,6 +6,8 @@ import styled from "styled-components"
 import { WindowContext } from "lib/windowContext"
 import { useContext, useEffect } from "react"
 import { WindowActionOptions } from "types/lib/windowTypes"
+import { ProcessContext } from "lib/processContext"
+import { ProcessActionOptions } from "types/lib/processTypes"
 
 const WindowComponent = styled.div<any>`
   transform: translate(19px, 10px);
@@ -21,6 +23,7 @@ interface PropsType {
 
 export const Window = ({ title, children }: PropsType): JSX.Element => {
   const { state, dispatch } = useContext(WindowContext)
+  const { dispatch: dispatchProcess } = useContext(ProcessContext)
   useEffect(() => {
     dispatch({
       type: WindowActionOptions.ID
@@ -38,7 +41,6 @@ export const Window = ({ title, children }: PropsType): JSX.Element => {
 
   return (
     <Draggable
-      bounds={'parent'}
       disabled={state?.isFullScreen}
       handle="strong"
       position={state?.possition}
