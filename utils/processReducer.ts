@@ -3,9 +3,9 @@ import { ProcessActionOptions, ProcessActionProps, ProcessStateTypes } from "typ
 
 export const processReducer: Reducer<ProcessStateTypes, ProcessActionProps> = (state, action) => {
   const { type, payload } = action
-  const { PROCESS } = ProcessActionOptions
+  const { PROCESSES } = ProcessActionOptions
   switch (type) {
-    case PROCESS: {
+    case PROCESSES: {
       return {
         ...state,
         processes: [...state.processes, payload]
