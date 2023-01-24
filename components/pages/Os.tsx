@@ -10,15 +10,21 @@ const OsComponent = styled.div<any>`
 
 export function Os() {
   const { state } = useContext(ProcessContext)
-  console.log(state)
+  console.log(state.processes)
   return (
     <OsComponent>
-      <ProgramManager />
-      {
-        state?.processes.map(() => {
-          return <IconProcesses />
-        })
-      }
+      <div id="processes">
+        {
+          state?.processes
+        }
+      </div>
+      <div id="icons">
+        {/* {
+          state?.processes.map((id: string) => {
+            return <IconProcesses key={id} />
+          })
+        } */}
+      </div>
     </OsComponent>
   )
 }
