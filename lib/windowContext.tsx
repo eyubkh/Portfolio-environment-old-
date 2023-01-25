@@ -9,8 +9,8 @@ const windowInitialState: WindowStateProps = {
   possition: { x: 0, y: 0 },
   lastPossition: undefined,
   isFullScreen: false,
-  isOpen: true,
-  limited: false
+  icon: '',
+  title: ''
 }
 
 export const WindowContext = createContext<any>({ state: windowInitialState } as {
