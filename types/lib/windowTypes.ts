@@ -1,7 +1,7 @@
 export enum WindowActionOptions {
   FULLSCREEN,
-  OPEN,
-  LIMITED,
+  TITLE,
+  ICON,
   ID,
   POSSITION
 }
@@ -11,8 +11,8 @@ export type WindowStateProps = {
   possition: { x: number, y: number },
   lastPossition: any | undefined,
   isFullScreen: boolean,
-  isOpen: boolean,
-  limited: boolean,
+  icon: string,
+  title: string
 }
 
 export type WindowActionProps = {
