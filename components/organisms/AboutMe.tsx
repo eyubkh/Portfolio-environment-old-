@@ -1,18 +1,23 @@
+import { WindowProvider } from "lib/windowContext"
+import Image from "next/image"
 import Draggable from "react-draggable"
 import styled from "styled-components"
-
-const AboutMeComponent = styled.div`
-  width: 400px;
-  height: 400px;
-  background-color: yellow;
-`
+import { Window } from "./Window"
 
 export const AboutMe = (): JSX.Element => {
-  return(
-    <Draggable>
-      <AboutMeComponent>
-        <h1>hello about</h1>
-      </AboutMeComponent>
-    </Draggable>
+  return (
+    <WindowProvider>
+      <Window
+        title="About Me"
+        icon="/icons/PROGM024.ICO"
+      >
+        <Image
+          src="/img/me.png"
+          alt="Photo of Ayoub Khalfaoui Hadi"
+          height={200}
+          width={200}
+        />
+      </Window>
+    </WindowProvider>
   )
 }
