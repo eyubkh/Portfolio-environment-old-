@@ -47,13 +47,25 @@ const WindowMinimizeComponent = styled.div`
 `
 
 export const WindowMinimize = (handler: any): JSX.Element => {
-  const { state: stateWindow, dispatch } = useContext(WindowContext)
+  const { state: stateWindow } = useContext(WindowContext)
+  const { dispatch: dispatchProcess } = useContext(ProcessContext)
 
   const handlerClick = (event: any) => {
     event.preventDefault()
-    if (dispatch) {
-      dispatch({
-        type: WindowActionOptions.OPEN
+    const el = document.getElementById(stateWindow.id)
+    if (el) {
+      el.style.display = 'none'
+    }
+
+    const metaData = {
+      id: stateWindow.id,
+      icon: stateWindow.icon,
+      title: stateWindow.title
+    }
+    if (dispatchProcess) {
+      dispatchProcess({
+        type: ProcessActionOptions.ICONPROCESSES,
+        payload: metaData
       })
     }
   }
