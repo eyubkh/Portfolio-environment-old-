@@ -6,7 +6,10 @@ import { IconProjects } from 'components/molecules/IconProjects'
 export const ProgramManager = () => {
   return (
     <WindowProvider>
-      <Window title='Program Manager'>
+      <Window
+        title='Program Manager'
+        icon='/icons/PROGM008.ICO'
+      >
         <IconAboutMe />
         <IconProjects />
       </Window>
