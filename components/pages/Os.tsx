@@ -10,7 +10,6 @@ const OsComponent = styled.div<any>`
 
 export function Os() {
   const { state } = useContext(ProcessContext)
-  console.log(state.processes)
   return (
     <OsComponent>
       <div id="processes">
@@ -19,11 +18,11 @@ export function Os() {
         }
       </div>
       <div id="icons">
-        {/* {
-          state?.processes.map((id: string) => {
-            return <IconProcesses key={id} />
+        {
+          state?.iconProcesses.map(({ id, title, icon }: { id: string, title: string, icon: string }, index: number) => {
+            return <IconProcesses key={index} id={id} title={title} icon={icon} />
           })
-        } */}
+        }
       </div>
     </OsComponent>
   )
