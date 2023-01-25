@@ -6,27 +6,32 @@ import styled from "styled-components"
 import { WindowContext } from "lib/windowContext"
 import { useContext, useEffect } from "react"
 import { WindowActionOptions } from "types/lib/windowTypes"
-import { ProcessContext } from "lib/processContext"
-import { ProcessActionOptions } from "types/lib/processTypes"
 
 const WindowComponent = styled.div<any>`
-  transform: translate(19px, 10px);
+  position: absolute;
   width: ${props => props.isFullScreen ? '100%' : '500px'};
   height: ${props => props.isFullScreen ? '100vh' : '500px'};
-  display: ${props => props.isOpen ? 'inline-block' : 'none'};
 `
 
 interface PropsType {
   children: JSX.Element[] | JSX.Element,
-  title: string
+  title: string,
+  icon: string
 }
 
-export const Window = ({ title, children }: PropsType): JSX.Element => {
+export const Window = ({ title, icon, children }: PropsType): JSX.Element => {
   const { state, dispatch } = useContext(WindowContext)
-  const { dispatch: dispatchProcess } = useContext(ProcessContext)
   useEffect(() => {
     dispatch({
       type: WindowActionOptions.ID
+    })
+    dispatch({
+      type: WindowActionOptions.ICON,
+      payload: icon
+    })
+    dispatch({
+      type: WindowActionOptions.TITLE,
+      payload: title
     })
   }, [])
 
@@ -48,7 +53,7 @@ export const Window = ({ title, children }: PropsType): JSX.Element => {
     >
       <WindowComponent
         id={state?.id}
-        isOpen={state?.isOpen}
+        key={state?.id}
         isFullScreen={state?.isFullScreen}
       >
         <WindowHeader title={title} />
