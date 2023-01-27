@@ -8,11 +8,14 @@ export enum WindowActionOptions {
 
 export type WindowStateProps = {
   id: string,
+  title: string
+  icon: string,
   possition: { x: number, y: number },
   lastPossition: any | undefined,
   isFullScreen: boolean,
-  icon: string,
-  title: string
+  width: number,
+  height: number,
+  processPossition: number
 }
 
 export type WindowActionProps = {

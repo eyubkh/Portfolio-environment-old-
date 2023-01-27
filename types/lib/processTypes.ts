@@ -1,6 +1,8 @@
 export enum ProcessActionOptions {
   PROCESSES,
-  ICONPROCESSES
+  ICON_PROCESSES,
+  DELETE_ICON_PROCESS,
+  DELETE_PROCESSES
 }
 
 export type ProcessActionProps = {
@@ -9,6 +11,13 @@ export type ProcessActionProps = {
 }
 
 export type ProcessStateTypes = {
-  processes: JSX.Element[],
-  iconProcesses: Object[]
+  processes: JSX.Element[] | undefined[],
+  iconProcesses: IconProcessesTypes[] | undefined[]
+}
+
+export type IconProcessesTypes = {
+  icon: string,
+  id: string,
+  title: string,
+  processPossition: number
 }
