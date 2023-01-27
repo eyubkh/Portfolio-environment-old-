@@ -1,7 +1,5 @@
 import { WindowProvider } from "lib/windowContext"
 import Image from "next/image"
-import Draggable from "react-draggable"
-import styled from "styled-components"
 import { Window } from "./Window"
 
 export const AboutMe = (): JSX.Element => {
