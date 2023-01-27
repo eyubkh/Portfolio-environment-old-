@@ -4,7 +4,6 @@ import { WindowContext } from "lib/windowContext"
 import { useContext } from "react"
 import styled from "styled-components"
 import { ProcessActionOptions } from "types/lib/processTypes"
-import { WindowActionOptions } from "types/lib/windowTypes"
 
 const WindowMinimizeComponent = styled.div`
   position: relative;
@@ -64,7 +63,7 @@ export const WindowMinimize = (handler: any): JSX.Element => {
     }
     if (dispatchProcess) {
       dispatchProcess({
-        type: ProcessActionOptions.ICONPROCESSES,
+        type: ProcessActionOptions.ICON_PROCESSES,
         payload: metaData
       })
     }
