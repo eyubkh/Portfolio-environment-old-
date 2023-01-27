@@ -5,10 +5,10 @@ import { ProcessActionOptions } from "types/lib/processTypes"
 import { AboutMe } from "components/organisms/AboutMe"
 
 export const IconAboutMe = (): JSX.Element => {
-  const { dispatch: addProcesses } = useContext(ProcessContext)
+  const { dispatch: dispatchProcesses } = useContext(ProcessContext)
   const handlerClick = (event: any) => {
     event.preventDefault()
-    addProcesses({
+    dispatchProcesses({
       type: ProcessActionOptions.PROCESSES,
       payload: <AboutMe />
     })
