@@ -6,7 +6,6 @@ import styled from "styled-components"
 const IconComponent = styled.div<any>`
   display: inline-block;
   text-align: center;
-  background-color: #f5f5f5;
   padding: 12px;
 
   p {
@@ -31,7 +30,7 @@ export const Icon = ({ src, children, handler }: IconTypes): JSX.Element => {
     >
       <IconComponent
         onDrag={() => onDrag}
-        onClick={handler}
+        onDoubleClick={handler}
       >
         <Image
           alt=''
