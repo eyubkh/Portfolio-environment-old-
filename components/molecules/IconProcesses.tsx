@@ -1,8 +1,8 @@
-import { IconProcessesTypes, ProcessActionOptions } from "types/lib/processTypes"
+import { IconProcessesProps, ProcessActionOptions } from "types/lib/processTypes"
 import { Icon } from "./Icon"
 import useProcessContext from "@utils/useProcessContext"
 
-export const IconProcesses = ({ id, title, icon, processPossition }: IconProcessesTypes): JSX.Element => {
+export const IconProcesses = ({ id, title, icon }: IconProcessesProps): JSX.Element => {
   const { dispatch: processDispatch } = useProcessContext()
   const handlerOnClick = (event: any) => {
     event.preventDefault()
@@ -13,7 +13,7 @@ export const IconProcesses = ({ id, title, icon, processPossition }: IconProcess
     }
     processDispatch({
       type: ProcessActionOptions.DELETE_ICON_PROCESS,
-      payload: processPossition
+      payload: title
     })
   }
 

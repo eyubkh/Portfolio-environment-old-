@@ -1,13 +1,14 @@
 import { WindowProvider } from "lib/windowContext"
 import Image from "next/image"
 import { Window } from "./Window"
+import { aboutMe } from "@utils/data"
 
 export const AboutMe = (): JSX.Element => {
   return (
     <WindowProvider>
       <Window
-        title="About Me"
-        icon="/icons/PROGM024.ICO"
+        title={aboutMe.title}
+        icon={aboutMe.icon}
       >
         <Image
           src="/img/me.png"

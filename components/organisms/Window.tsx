@@ -46,7 +46,7 @@ export const Window = ({ title, icon, children }: WindowTypes): JSX.Element => {
       position={possition}
       onDrag={(event: any, position: any) => handlerOnControlledDrag(event, position, windowDispatch)}
     >
-      <WindowComponent {...props} >
+      <WindowComponent id={windowState.id} {...props} >
         <WindowHeader title={title} />
         <WindowSubHeader />
         <WindowContent>

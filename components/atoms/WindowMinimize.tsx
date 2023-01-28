@@ -50,6 +50,7 @@ export const WindowMinimize = (): JSX.Element => {
 
   const handlerOnClickMinimize = (event: any) => {
     event.preventDefault()
+
     const el = document.getElementById(windowState.id)
     if (el) {
       el.style.display = 'none'
@@ -63,7 +64,9 @@ export const WindowMinimize = (): JSX.Element => {
 
     processDispatch({
       type: ProcessActionOptions.ICON_PROCESSES,
-      payload: metaData
+      payload: {
+        [windowState.title]: metaData
+      }
     })
   }
   return <WindowMinimizeComponent onClick={handlerOnClickMinimize} />

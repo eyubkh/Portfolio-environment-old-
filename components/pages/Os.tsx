@@ -1,10 +1,6 @@
 import styled from "styled-components"
-import { ProgramManager } from "../organisms/ProgramManager"
-import { ProcessContext, ProcessProvider } from "lib/processContext"
-import { useContext } from "react"
-import { IconProcesses } from "components/molecules/IconProcesses"
-import { IconProcessesTypes } from "types/lib/processTypes"
 import useProcessContext from "@utils/useProcessContext"
+import { IconProcesses } from "components/molecules/IconProcesses"
 
 const OsComponent = styled.div<any>`
   height: 100vh;
@@ -17,22 +13,15 @@ export function Os() {
     <OsComponent>
       <div id="processes">
         {
-          processes
-            .filter((item: any) => {
-              if (item) return item
-            })
+          Object.values(processes)
         }
       </div>
       <div id="icons">
         {
-          iconProcesses
-            .map((object: IconProcessesTypes | undefined, index: number) => {
-              if (!object) return undefined
-              const { id, title, icon } = object
-              return <IconProcesses key={id + index} id={id} title={title} processPossition={index} icon={icon} />
-            })
-            .filter((item: any) => {
-              if (item) return item
+          Object
+            .values(iconProcesses)
+            .map(({ id, title, icon }: any) => {
+              return <IconProcesses key={id} id={id} icon={icon} title={title} />
             })
         }
       </div>

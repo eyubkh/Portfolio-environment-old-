@@ -1,41 +1,36 @@
 import { Reducer } from "react"
-import { ProcessActionOptions, ProcessActionProps, ProcessStateTypes } from "types/lib/processTypes"
+import {
+  ProcessActionOptions as Options,
+  ProcessActionProps,
+  ProcessStateTypes
+} from "types/lib/processTypes"
 
 export const processReducer: Reducer<ProcessStateTypes, ProcessActionProps> = (state, action) => {
   const { type, payload } = action
 
-  const {
-    PROCESSES,
-    ICON_PROCESSES,
-    DELETE_ICON_PROCESS,
-    DELETE_PROCESSES
-  } = ProcessActionOptions
-
   switch (type) {
-    case PROCESSES: {
+    case Options.PROCESSES: {
       return {
         ...state,
-        processes: [...state.processes, payload]
+        processes: Object.assign(state.processes, payload)
       }
     }
-    case DELETE_PROCESSES: {
-      state.processes[payload] = undefined
+    case Options.DELETE_PROCESSES: {
+      delete state.processes[payload]
       return {
-        ...state,
-        processes: [...state.processes]
+        ...state
       }
     }
-    case ICON_PROCESSES: {
+    case Options.ICON_PROCESSES: {
       return {
         ...state,
-        iconProcesses: [...state.iconProcesses, payload]
+        iconProcesses: Object.assign(state.iconProcesses, payload)
       }
     }
-    case DELETE_ICON_PROCESS: {
-      state.iconProcesses[payload] = undefined
+    case Options.DELETE_ICON_PROCESS: {
+      delete state.iconProcesses[payload]
       return {
-        ...state,
-        iconProcesses: [...state.iconProcesses]
+        ...state
       }
     }
     default: {
