@@ -1,8 +1,7 @@
-import { Black100, Grey200 } from "@utils/tokens"
-import { ProcessContext } from "lib/processContext"
-import { WindowContext } from "lib/windowContext"
-import { useContext } from "react"
 import styled from "styled-components"
+import useProcessContext from "@utils/useProcessContext"
+import useWindowContext from "@utils/useWindowContext"
+import { Black100, Grey200 } from "@utils/tokens"
 import { ProcessActionOptions } from "types/lib/processTypes"
 
 const WindowMinimizeComponent = styled.div`
@@ -45,28 +44,27 @@ const WindowMinimizeComponent = styled.div`
   }
 `
 
-export const WindowMinimize = (handler: any): JSX.Element => {
-  const { state: stateWindow } = useContext(WindowContext)
-  const { dispatch: dispatchProcess } = useContext(ProcessContext)
+export const WindowMinimize = (): JSX.Element => {
+  const { state: windowState } = useWindowContext()
+  const { dispatch: processDispatch } = useProcessContext()
 
-  const handlerClick = (event: any) => {
+  const handlerOnClickMinimize = (event: any) => {
     event.preventDefault()
-    const el = document.getElementById(stateWindow.id)
+    const el = document.getElementById(windowState.id)
     if (el) {
       el.style.display = 'none'
     }
 
     const metaData = {
-      id: stateWindow.id,
-      icon: stateWindow.icon,
-      title: stateWindow.title
+      id: windowState.id,
+      icon: windowState.icon,
+      title: windowState.title
     }
-    if (dispatchProcess) {
-      dispatchProcess({
-        type: ProcessActionOptions.ICON_PROCESSES,
-        payload: metaData
-      })
-    }
+
+    processDispatch({
+      type: ProcessActionOptions.ICON_PROCESSES,
+      payload: metaData
+    })
   }
-  return <WindowMinimizeComponent onClick={handlerClick} />
+  return <WindowMinimizeComponent onClick={handlerOnClickMinimize} />
 }

@@ -11,8 +11,8 @@ const windowInitialState: WindowStateProps = {
   isFullScreen: false,
   icon: '',
   title: '',
-  height: 500,
-  width: 300,
+  height: 300,
+  width: 500,
   processPossition: 0
 }
 

@@ -1,61 +1,52 @@
+import styled from "styled-components"
+import Draggable from "react-draggable"
 import { WindowContent } from "components/molecules/WindowContent"
 import { WindowHeader } from "components/molecules/WindowHeader"
 import { WindowSubHeader } from "components/molecules/WindowSubHeader"
-import Draggable from "react-draggable"
-import styled from "styled-components"
-import { WindowContext } from "lib/windowContext"
-import { useContext, useEffect } from "react"
+import { useEffect } from "react"
 import { WindowActionOptions } from "types/lib/windowTypes"
+import { WindowTypes } from "types/global"
+import useWindowContext from "@utils/useWindowContext"
+import handlerOnControlledDrag from "@utils/handlerOnControlledDrag"
 
 const WindowComponent = styled.div<any>`
   position: absolute;
-  width: ${props => props.isFullScreen ? '100%' : '500px'};
-  height: ${props => props.isFullScreen ? '100vh' : '500px'};
+  width: ${({ isFullScreen, width }) => isFullScreen ? '100%' : width + 'px'};
+  height: ${({ isFullScreen, height }) => isFullScreen ? '100vh' : height + 'px'};
 `
 
-interface PropsType {
-  children: JSX.Element[] | JSX.Element,
-  title: string,
-  icon: string
-}
+export const Window = ({ title, icon, children }: WindowTypes): JSX.Element => {
+  const { state: windowState, dispatch: windowDispatch } = useWindowContext()
+  const { isFullScreen, height, width, possition } = windowState
 
-export const Window = ({ title, icon, children }: PropsType): JSX.Element => {
-  const { state, dispatch } = useContext(WindowContext)
   useEffect(() => {
-    dispatch({
+    windowDispatch({
       type: WindowActionOptions.ID
     })
-    dispatch({
+    windowDispatch({
       type: WindowActionOptions.ICON,
       payload: icon
     })
-    dispatch({
+    windowDispatch({
       type: WindowActionOptions.TITLE,
       payload: title
     })
   }, [])
 
-
-  const handlerOnControlledDrag = (event: any, possition: any) => {
-    const { x, y } = possition
-    dispatch({
-      type: WindowActionOptions.POSSITION,
-      payload: { x, y }
-    })
+  const props = {
+    height,
+    width,
+    isFullScreen
   }
 
   return (
     <Draggable
-      disabled={state?.isFullScreen}
+      disabled={isFullScreen}
       handle="strong"
-      position={state?.possition}
-      onDrag={handlerOnControlledDrag}
+      position={possition}
+      onDrag={(event: any, position: any) => handlerOnControlledDrag(event, position, windowDispatch)}
     >
-      <WindowComponent
-        id={state?.id}
-        key={state?.id}
-        isFullScreen={state?.isFullScreen}
-      >
+      <WindowComponent {...props} >
         <WindowHeader title={title} />
         <WindowSubHeader />
         <WindowContent>

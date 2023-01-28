@@ -15,7 +15,7 @@ const WindowSubHeaderComponent = styled.div`
   }
 `
 
-export const WindowSubHeader = () => {
+export const WindowSubHeader = (): JSX.Element => {
   return (
     <WindowSubHeaderComponent>
       <h3>File</h3>

@@ -1,5 +1,6 @@
 import { White100 } from "@utils/tokens"
 import styled from "styled-components"
+import { ChildrenType } from "types/global"
 
 const WindowContentComponent = styled.div`
   padding-top: 52px;
@@ -9,11 +10,7 @@ const WindowContentComponent = styled.div`
   overflow: hidden;
 `
 
-interface PropsType {
-  children: JSX.Element[] | JSX.Element
-}
-
-export const WindowContent = ({ children }: PropsType): JSX.Element => {
+export const WindowContent = ({ children }: ChildrenType): JSX.Element => {
   return (
     <WindowContentComponent>
       {children}

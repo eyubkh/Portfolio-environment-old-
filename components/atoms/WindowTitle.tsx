@@ -1,5 +1,6 @@
 import { Blue100, White100 } from '@utils/tokens'
 import styled from 'styled-components'
+import { TitleType } from 'types/global'
 
 const WindowTitleComponent = styled.strong`
   display: grid;
@@ -11,11 +12,7 @@ const WindowTitleComponent = styled.strong`
   color: ${White100};
 `
 
-interface PropsType {
-  title: string
-}
-
-export const WindowTitle = ({ title = 'default text' }: PropsType): JSX.Element => {
+export const WindowTitle = ({ title = 'default text' }: TitleType): JSX.Element => {
   return <WindowTitleComponent>
     <h3>{title}</h3>
   </WindowTitleComponent>

@@ -1,7 +1,6 @@
-import { Black100, Grey200 } from "@utils/tokens"
-import { WindowContext } from "lib/windowContext"
-import { useContext } from "react"
 import styled from "styled-components"
+import useWindowContext from "@utils/useWindowContext"
+import { Black100, Grey200 } from "@utils/tokens"
 import { WindowActionOptions } from "types/lib/windowTypes"
 
 const WindowMaximizeComponent = styled.div`
@@ -43,10 +42,10 @@ const WindowMaximizeComponent = styled.div`
 `
 
 export const WindowMaximize = () => {
-  const { dispatch } = useContext(WindowContext)
+  const { dispatch: windowDispatch } = useWindowContext()
 
   const handlerMax = () => {
-    dispatch({
+    windowDispatch({
       type: WindowActionOptions.FULLSCREEN
     })
   }

@@ -1,21 +1,21 @@
-import { useContext } from "react"
 import { Icon } from "./Icon"
-import { ProcessContext } from "lib/processContext"
 import { ProcessActionOptions } from "types/lib/processTypes"
 import { AboutMe } from "components/organisms/AboutMe"
+import useProcessContext from "@utils/useProcessContext"
 
 export const IconAboutMe = (): JSX.Element => {
-  const { dispatch: dispatchProcesses } = useContext(ProcessContext)
-  const handlerClick = (event: any) => {
+  const { dispatch: processdispatch } = useProcessContext()
+  const handlerOnClickIcon = (event: any) => {
     event.preventDefault()
-    dispatchProcesses({
+    processdispatch({
       type: ProcessActionOptions.PROCESSES,
       payload: <AboutMe />
     })
   }
+
   return (
     <Icon
-      handler={handlerClick}
+      handler={handlerOnClickIcon}
       src="/icons/PROGM024.ICO"
     >
       About Me

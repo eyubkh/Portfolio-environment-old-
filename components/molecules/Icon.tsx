@@ -1,7 +1,8 @@
+import styled from "styled-components"
+import Draggable from "react-draggable"
 import Image from "next/image"
 import { useState } from "react"
-import Draggable from "react-draggable"
-import styled from "styled-components"
+import { IconTypes } from "types/global"
 
 const IconComponent = styled.div<any>`
   display: inline-block;
@@ -12,12 +13,6 @@ const IconComponent = styled.div<any>`
     opacity: ${props => props.onDrag() ? 0 : 1};
   }
 `
-
-type IconTypes = {
-  src: string,
-  children: string,
-  handler?: Function
-}
 
 export const Icon = ({ src, children, handler }: IconTypes): JSX.Element => {
   const [onDrag, setOnDrag] = useState(false)

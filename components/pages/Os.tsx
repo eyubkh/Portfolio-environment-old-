@@ -4,18 +4,20 @@ import { ProcessContext, ProcessProvider } from "lib/processContext"
 import { useContext } from "react"
 import { IconProcesses } from "components/molecules/IconProcesses"
 import { IconProcessesTypes } from "types/lib/processTypes"
+import useProcessContext from "@utils/useProcessContext"
 
 const OsComponent = styled.div<any>`
   height: 100vh;
 `
 
 export function Os() {
-  const { state } = useContext(ProcessContext)
+  const { state: processState } = useProcessContext()
+  const { processes, iconProcesses } = processState
   return (
     <OsComponent>
       <div id="processes">
         {
-          state?.processes
+          processes
             .filter((item: any) => {
               if (item) return item
             })
@@ -23,7 +25,7 @@ export function Os() {
       </div>
       <div id="icons">
         {
-          state?.iconProcesses
+          iconProcesses
             .map((object: IconProcessesTypes | undefined, index: number) => {
               if (!object) return undefined
               const { id, title, icon } = object

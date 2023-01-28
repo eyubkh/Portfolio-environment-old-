@@ -1,4 +1,6 @@
 import { Black100, Grey100, Grey200, White100 } from "@utils/tokens"
+import useProcessContext from "@utils/useProcessContext"
+import useWindowContext from "@utils/useWindowContext"
 import { ProcessContext } from "lib/processContext"
 import { WindowContext } from "lib/windowContext"
 import { useContext } from "react"
@@ -30,17 +32,17 @@ const WindowCloseComponent = styled.div`
 `
 
 export const WindowClose = () => {
-  const { state: stateWindow } = useContext(WindowContext)
-  const { state, dispatch: dispatchProcess } = useContext(ProcessContext)
-  const handlerClose = (event: any) => {
+  const { state: windowState } = useWindowContext()
+  const { state: processState, dispatch: processDispatch } = useProcessContext()
+  const handlerOnClickClose = (event: any) => {
     event.preventDefault()
-    console.log(state.processes, stateWindow.processPosition)
-    dispatchProcess({
+
+    processDispatch({
       type: ProcessActionOptions.DELETE_PROCESSES,
-      payload: stateWindow.processPossition
+      payload: windowState.processPossition
     })
   }
 
-  return <WindowCloseComponent onClick={handlerClose} />
+  return <WindowCloseComponent onClick={handlerOnClickClose} />
 
 }
