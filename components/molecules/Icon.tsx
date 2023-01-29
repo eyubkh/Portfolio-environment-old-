@@ -17,9 +17,13 @@ const IconComponent = styled.div<any>`
 export const Icon = ({ src, children, handler }: IconTypes): JSX.Element => {
   const [onDrag, setOnDrag] = useState(false)
 
+  const handlerOnDrag = (event: any) => {
+    console.log(event)
+  }
+
   return (
     <Draggable
-      bounds='parent'
+      onDrag={handlerOnDrag}
       onStart={() => setOnDrag(true)}
       onStop={() => setOnDrag(false)}
     >

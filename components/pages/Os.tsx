@@ -1,9 +1,14 @@
 import styled from "styled-components"
 import useProcessContext from "@utils/useProcessContext"
 import { IconProcesses } from "components/molecules/IconProcesses"
+import { useEffect } from "react"
 
 const OsComponent = styled.div<any>`
   height: 100vh;
+  #icons {
+    height: 100vh;
+    display: flex;
+  }
 `
 
 export function Os() {
@@ -12,9 +17,7 @@ export function Os() {
   return (
     <OsComponent>
       <div id="processes">
-        {
-          Object.values(processes)
-        }
+        {Object.values(processes)}
       </div>
       <div id="icons">
         {

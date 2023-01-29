@@ -2,7 +2,8 @@ export enum ProcessActionOptions {
   PROCESSES,
   ICON_PROCESSES,
   DELETE_ICON_PROCESS,
-  DELETE_PROCESSES
+  DELETE_PROCESSES,
+  FOCUS
 }
 
 export type ProcessActionProps = {
@@ -15,7 +16,8 @@ type ProcessesTypes = {
 }
 export type ProcessStateTypes = {
   processes: ProcessesTypes,
-  iconProcesses: IconProcessesTypes
+  iconProcesses: IconProcessesTypes,
+  windowFocus: number
 }
 
 type IconProcessesTypes = {

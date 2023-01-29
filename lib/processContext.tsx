@@ -8,7 +8,8 @@ const processInitialState: ProcessStateTypes = {
   processes: {
     'Program Manager': <ProgramManager key={0} />
   },
-  iconProcesses: {}
+  iconProcesses: {},
+  windowFocus: 1
 }
 
 export const ProcessContext = createContext<any>({ state: processInitialState } as {

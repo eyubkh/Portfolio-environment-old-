@@ -9,6 +9,12 @@ export const processReducer: Reducer<ProcessStateTypes, ProcessActionProps> = (s
   const { type, payload } = action
 
   switch (type) {
+    case Options.FOCUS: {
+      return {
+        ...state,
+        windowFocus: state.windowFocus + 1
+      }
+    }
     case Options.PROCESSES: {
       return {
         ...state,
