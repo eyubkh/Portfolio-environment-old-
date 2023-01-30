@@ -2,8 +2,14 @@ import { WindowProvider } from "lib/windowContext"
 import Image from "next/image"
 import { Window } from "./Window"
 import { aboutMe } from "@utils/data"
-
+import { useEffect } from "react"
 export const AboutMe = (): JSX.Element => {
+  useEffect(() => {
+    (async function fechingMD() {
+      const response = await window.fetch('/api/fetchmd')
+      console.log(response)
+    })()
+  }, [])
   return (
     <WindowProvider>
       <Window
