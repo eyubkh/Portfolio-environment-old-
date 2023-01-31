@@ -8,7 +8,7 @@ const IconComponent = styled.div<any>`
   display: inline-block;
   text-align: center;
   padding: 12px;
-
+  filter: ${props => props.onDrag() ? 'grayscale(100%)' : 'none'};
   p {
     opacity: ${props => props.onDrag() ? 0 : 1};
   }
@@ -18,7 +18,7 @@ export const Icon = ({ src, children, handler }: IconTypes): JSX.Element => {
   const [onDrag, setOnDrag] = useState(false)
 
   const handlerOnDrag = (event: any) => {
-    console.log(event)
+    // console.log(event)
   }
 
   return (
