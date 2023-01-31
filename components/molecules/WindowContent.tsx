@@ -5,9 +5,9 @@ import { ChildrenType } from "types/global"
 const WindowContentComponent = styled.div`
   width: 100%;
   height: 100%;
+  overflow: scroll;
   background-color: ${White100};
   border: 1px solid ${Black100};
-  overflow: hidden;
   border-top: none;
 `
 
