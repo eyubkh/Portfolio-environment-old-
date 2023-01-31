@@ -10,11 +10,12 @@ import useWindowContext from "@utils/useWindowContext"
 import handlerOnControlledDrag from "@utils/handlerOnControlledDrag"
 
 const WindowComponent = styled.div<any>`
+  position: absolute;
   display: flex;
   flex-direction: column;
   border: 1px solid red;
   width: ${({ isFullScreen, width }) => isFullScreen ? '100%' : width + 'px'};
-  height: ${({ isFullScreen, height }) => isFullScreen ? '100vh' : height + 100 + 'px'};
+  height: ${({ isFullScreen, height }) => isFullScreen ? '100vh' : height + 'px'};
 `
 
 export const Window = ({ title, icon, children }: WindowTypes): JSX.Element => {
