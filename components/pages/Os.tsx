@@ -1,9 +1,9 @@
 import styled from "styled-components"
 import useProcessContext from "@utils/useProcessContext"
 import { IconProcesses } from "components/molecules/IconProcesses"
-import { useEffect } from "react"
 
 const OsComponent = styled.div<any>`
+position: relative;
   height: 100vh;
   #icons {
     height: 100vh;
