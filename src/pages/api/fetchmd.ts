@@ -12,6 +12,5 @@ export default async function handler(
 
   const convert = new showdow.Converter()
   const html = convert.makeHtml(text)
-
-  res.status(200).send('hello')
+  res.status(200).send(html)
 }
