@@ -1,6 +1,5 @@
 import { Icon } from "./Icon"
 import { ProcessActionOptions } from "types/lib/processTypes"
-import { AboutMe } from "components/organisms/AboutMe"
 import useProcessContext from "@utils/useProcessContext"
 import { aboutMe } from "@utils/data"
 
@@ -12,7 +11,7 @@ export const IconAboutMe = (): JSX.Element => {
     processDispatch({
       type: ProcessActionOptions.PROCESSES,
       payload: {
-        [aboutMe.title]: <AboutMe />
+        [aboutMe.title]: aboutMe.component
       }
     })
   }
