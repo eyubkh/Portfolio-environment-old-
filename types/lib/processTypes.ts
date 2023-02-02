@@ -1,9 +1,7 @@
 export enum ProcessActionOptions {
   PROCESSES,
-  ICON_PROCESSES,
-  DELETE_ICON_PROCESS,
   DELETE_PROCESSES,
-  FOCUS
+  MINIMIZED
 }
 
 export type ProcessActionProps = {
@@ -11,21 +9,16 @@ export type ProcessActionProps = {
   payload?: any
 }
 
-type ProcessesTypes = {
-  [key: string]: JSX.Element
+type ProcessesProps = {
+  [key: string]: ProcessesTypes
 }
-export type ProcessStateTypes = {
-  processes: ProcessesTypes,
-  iconProcesses: IconProcessesTypes,
-  windowFocus: number
+export interface ProcessStateProps {
+  processes: ProcessesProps
 }
 
-type IconProcessesTypes = {
-  [key: string]: IconProcessesProps
-}
-
-export type IconProcessesProps = {
-  id: string,
-  icon: string,
-  title: string,
+export type ProcessesTypes = {
+  id: number,
+  component: JSX.Element,
+  iconComponent: JSX.Element,
+  minimized: boolean,
 }

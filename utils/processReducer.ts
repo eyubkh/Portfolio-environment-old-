@@ -2,23 +2,25 @@ import { Reducer } from "react"
 import {
   ProcessActionOptions as Options,
   ProcessActionProps,
-  ProcessStateTypes
+  ProcessStateProps
 } from "types/lib/processTypes"
 
-export const processReducer: Reducer<ProcessStateTypes, ProcessActionProps> = (state, action) => {
+export const processReducer: Reducer<ProcessStateProps, ProcessActionProps> = (state, action) => {
   const { type, payload } = action
 
   switch (type) {
-    case Options.FOCUS: {
-      return {
-        ...state,
-        windowFocus: state.windowFocus + 1
-      }
-    }
     case Options.PROCESSES: {
+      const key = Object.keys(payload)[0]
       return {
         ...state,
-        processes: Object.assign(state.processes, payload)
+        processes: {
+          ...state.processes,
+          [key]: {
+            ...payload[key],
+            id: '1234',
+            minimized: false
+          }
+        }
       }
     }
     case Options.DELETE_PROCESSES: {
@@ -27,16 +29,16 @@ export const processReducer: Reducer<ProcessStateTypes, ProcessActionProps> = (s
         ...state
       }
     }
-    case Options.ICON_PROCESSES: {
+    case Options.MINIMIZED: {
       return {
         ...state,
-        iconProcesses: Object.assign(state.iconProcesses, payload)
-      }
-    }
-    case Options.DELETE_ICON_PROCESS: {
-      delete state.iconProcesses[payload]
-      return {
-        ...state
+        processes: {
+          ...state.processes,
+          [payload[0]]: {
+            ...state.processes[payload[0]],
+            minimized: payload[1]
+          }
+        }
       }
     }
     default: {

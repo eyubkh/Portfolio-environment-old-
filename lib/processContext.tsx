@@ -2,18 +2,21 @@ import { processReducer } from "@utils/processReducer"
 import { ProgramManager } from "components/organisms/ProgramManager"
 import { Dispatch, createContext, useReducer } from "react"
 import { ChildrenType } from "types/global"
-import { ProcessActionOptions, ProcessStateTypes } from "types/lib/processTypes"
+import { ProcessActionOptions, ProcessStateProps } from "types/lib/processTypes"
 
-const processInitialState: ProcessStateTypes = {
+const processInitialState: ProcessStateProps = {
   processes: {
-    'Program Manager': <ProgramManager key={0} />
-  },
-  iconProcesses: {},
-  windowFocus: 1
+    'Program Manager': {
+      id: 0,
+      component: <ProgramManager />,
+      iconComponent: <h1>pragramManager</h1>,
+      minimized: false
+    }
+  }
 }
 
 export const ProcessContext = createContext<any>({ state: processInitialState } as {
-  state: ProcessStateTypes,
+  state: ProcessStateProps,
   dispatch: Dispatch<ProcessActionOptions>
 })
 
