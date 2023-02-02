@@ -1,6 +1,6 @@
 import { Blue100, White100 } from '@utils/tokens'
+import useWindowContext from '@utils/useWindowContext'
 import styled from 'styled-components'
-import { TitleType } from 'types/global'
 
 const WindowTitleComponent = styled.strong`
   display: grid;
@@ -12,8 +12,10 @@ const WindowTitleComponent = styled.strong`
   color: ${White100};
 `
 
-export const WindowTitle = ({ title = 'default text' }: TitleType): JSX.Element => {
+export const WindowTitle = (): JSX.Element => {
+  const { state: windowState } = useWindowContext()
+
   return <WindowTitleComponent>
-    <h3>{title}</h3>
+    <h3>{windowState.title}</h3>
   </WindowTitleComponent>
 }
