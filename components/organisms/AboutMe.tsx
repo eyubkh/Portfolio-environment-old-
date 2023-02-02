@@ -10,7 +10,6 @@ export const AboutMe = (): JSX.Element => {
     (async function () {
       const response = await window.fetch('/api/fetchmd')
         .then(data => data.text())
-      console.log(response)
       setReadme(response)
     })()
   }, [])
