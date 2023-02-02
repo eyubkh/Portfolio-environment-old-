@@ -13,7 +13,6 @@ const windowInitialState: WindowStateProps = {
   title: '',
   height: 300,
   width: 500,
-  processPossition: 0
 }
 
 export const WindowContext = createContext<any>({ state: windowInitialState } as {

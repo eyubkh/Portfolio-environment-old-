@@ -15,7 +15,6 @@ export type WindowStateProps = {
   isFullScreen: boolean,
   width: number,
   height: number,
-  processPossition: number
 }
 
 export type WindowActionProps = {
