@@ -1,6 +1,5 @@
 import styled from "styled-components"
 import useProcessContext from "@utils/useProcessContext"
-import { IconProcesses } from "components/molecules/IconProcesses"
 
 const OsComponent = styled.div<any>`
 position: relative;
@@ -13,19 +12,22 @@ position: relative;
 
 export function Os() {
   const { state: processState } = useProcessContext()
-  const { processes, iconProcesses } = processState
+  const { processes } = processState
   return (
     <OsComponent>
       <div id="processes">
-        {Object.values(processes)}
+        {
+          Object
+            .values(processes)
+            .map(({ component }: any): JSX.Element => component)
+        }
       </div>
       <div id="icons">
         {
           Object
-            .values(iconProcesses)
-            .map(({ id, title, icon }: any) => {
-              return <IconProcesses key={id} id={id} icon={icon} title={title} />
-            })
+            .values(processes)
+            .filter((process: any): any => process.minimized)
+            .map(({ iconComponent }: any): any => iconComponent)
         }
       </div>
     </OsComponent>
