@@ -4,7 +4,6 @@ import { WindowClose } from 'components/atoms/WindowClose'
 import { WindowMaximize } from 'components/atoms/WindowMaximize'
 import { WindowMinimize } from 'components/atoms/WindowMinimize'
 import { WindowTitle } from 'components/atoms/WindowTitle'
-import { TitleType } from 'types/global'
 
 const WindowHeaderComponent = styled.div`
   display: flex;
@@ -12,11 +11,11 @@ const WindowHeaderComponent = styled.div`
   border: 1px solid ${Black100};
 `
 
-export const WindowHeader = ({ title }: TitleType): JSX.Element => {
+export const WindowHeader = (): JSX.Element => {
   return (
     <WindowHeaderComponent>
       <WindowClose />
-      <WindowTitle title={title} />
+      <WindowTitle />
       <WindowMaximize />
       <WindowMinimize />
     </WindowHeaderComponent>
