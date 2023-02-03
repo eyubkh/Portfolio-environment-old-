@@ -1,11 +1,12 @@
 import { WindowProvider } from "lib/windowContext"
 import { Window } from "./Window"
-import data, { aboutMe } from "@utils/data"
 import { useEffect, useState } from "react"
+import data, { lim } from "@utils/data"
+import parser from 'html-react-parser'
 import { fetchingMarkDown } from "@utils/fetchingMarkDown"
 
-export const AboutMe = (): JSX.Element => {
-  const { title, icon, url } = data[aboutMe]
+export const Lim = () => {
+  const { title, icon, url } = data[lim]
   const [readme, setReadme] = useState<any | null>(null)
   useEffect(() => {
     (async function () {
@@ -13,7 +14,6 @@ export const AboutMe = (): JSX.Element => {
       setReadme(response)
     })()
   }, [])
-
   return (
     <WindowProvider>
       <Window

@@ -1,6 +1,7 @@
 import { WindowProvider } from "lib/windowContext"
 import { Window } from "./Window"
-import data, { projects } from "@utils/data"
+import data, { englicus, lim, projects } from "@utils/data"
+import { Icon } from "components/molecules/Icon"
 
 export const Projects = () => {
   const { title, icon } = data[projects]
@@ -10,6 +11,14 @@ export const Projects = () => {
         title={title}
         icon={icon}
       >
+        <Icon
+          title={data[englicus].title}
+          icon={data[englicus].icon}
+        />
+        <Icon
+          title={data[lim].title}
+          icon={data[lim].icon}
+        />
       </Window>
     </WindowProvider>
   )
