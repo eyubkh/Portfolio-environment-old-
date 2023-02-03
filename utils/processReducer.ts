@@ -1,35 +1,51 @@
 import { Reducer } from "react"
 import {
-  ProcessActionOptions as Options,
+  ProcessActionOptions,
   ProcessActionProps,
   ProcessStateProps
 } from "types/lib/processTypes"
+import { uuid as v4 } from "uuidv4"
 
 export const processReducer: Reducer<ProcessStateProps, ProcessActionProps> = (state, action) => {
   const { type, payload } = action
 
   switch (type) {
-    case Options.PROCESSES: {
-      const key = Object.keys(payload)[0]
+    case ProcessActionOptions.INIT: {
+      const key = payload.title
       return {
         ...state,
         processes: {
           ...state.processes,
           [key]: {
-            ...payload[key],
-            id: '1234',
-            minimized: false
+            ...state.processes[key],
+            icon: payload
           }
         }
       }
     }
-    case Options.DELETE_PROCESSES: {
+    case ProcessActionOptions.PROCESSES: {
+      const key = payload[0]
+      const id = v4()
+      return {
+        ...state,
+        processes: {
+          ...state.processes,
+          [key]: {
+            ...state.processes[key],
+            id,
+            minimized: false,
+            component: payload[1](id)
+          }
+        }
+      }
+    }
+    case ProcessActionOptions.DELETE_PROCESSES: {
       delete state.processes[payload]
       return {
         ...state
       }
     }
-    case Options.MINIMIZED: {
+    case ProcessActionOptions.MINIMIZED: {
       return {
         ...state,
         processes: {
