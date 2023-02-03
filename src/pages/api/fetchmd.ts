@@ -5,8 +5,9 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  const baseUrl = 'https://raw.githubusercontent.com/eyubkh/Portfolio/main/README.md'
-  const text = await fetch(baseUrl)
+  const url = req.body
+  const baseUrl = 'https://raw.githubusercontent.com'
+  const text = await fetch(baseUrl + url)
     .then(data => data.text())
 
   const regex = /<div id="desc">([\s\S]*?)<\/div>/
