@@ -1,8 +1,7 @@
 export enum WindowActionOptions {
+  INIT,
   FULLSCREEN,
   TITLE,
-  ICON,
-  ID,
   POSSITION
 }
 

@@ -1,4 +1,5 @@
 export enum ProcessActionOptions {
+  INIT,
   PROCESSES,
   DELETE_PROCESSES,
   MINIMIZED
@@ -19,6 +20,10 @@ export interface ProcessStateProps {
 export type ProcessesTypes = {
   id: number,
   component: JSX.Element,
-  iconComponent: JSX.Element,
+  icon: {
+    src: string,
+    title: string,
+    alt: string
+  },
   minimized: boolean,
 }
