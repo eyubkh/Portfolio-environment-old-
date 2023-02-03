@@ -5,14 +5,7 @@ import { ChildrenType } from "types/global"
 import { ProcessActionOptions, ProcessStateProps } from "types/lib/processTypes"
 
 const processInitialState: ProcessStateProps = {
-  processes: {
-    'Program Manager': {
-      id: 0,
-      component: <ProgramManager />,
-      iconComponent: <h1>pragramManager</h1>,
-      minimized: false
-    }
-  }
+  processes: {}
 }
 
 export const ProcessContext = createContext<any>({ state: processInitialState } as {
