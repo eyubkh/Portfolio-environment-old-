@@ -1,15 +1,16 @@
 import { WindowProvider } from "lib/windowContext"
 import { Window } from "./Window"
-import { sendNote } from "@utils/data"
+import data, { sendNote } from "@utils/data"
 
 export const SendNote = () => {
+  const { title, icon } = data[sendNote]
+
   return (
     <WindowProvider>
       <Window
-        title={sendNote.title}
-        icon={sendNote.icon}
+        title={title}
+        icon={icon}
       >
-        <h1>hello</h1>
       </Window>
     </WindowProvider>
   )

@@ -1,10 +1,11 @@
 import { WindowProvider } from "lib/windowContext"
 import { Window } from "./Window"
-import { aboutMe } from "@utils/data"
+import data, { aboutMe } from "@utils/data"
 import { useEffect, useState } from "react"
 import parse from 'html-react-parser'
 
 export const AboutMe = (): JSX.Element => {
+  const { title, icon } = data[aboutMe]
   const [readme, setReadme] = useState('')
   useEffect(() => {
     (async function () {
@@ -17,8 +18,8 @@ export const AboutMe = (): JSX.Element => {
   return (
     <WindowProvider>
       <Window
-        title={aboutMe.title}
-        icon={aboutMe.icon}
+        title={title}
+        icon={icon}
       >
         <div>{parse(readme)}</div>
       </Window>
