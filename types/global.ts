@@ -10,7 +10,7 @@ export interface WindowTypes extends ChildrenType, TitleType {
   icon: string
 }
 export type IconTypes = {
-  src: string,
-  children: string,
-  handler?: Function
+  icon: string,
+  title: string,
+  handler?: any
 }
