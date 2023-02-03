@@ -1,16 +1,20 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next'
-var showdow = require('showdown')
 
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  const baseUrl = 'https://raw.githubusercontent.com/eyubkh/Englicus/main/README.md'
+  const baseUrl = 'https://raw.githubusercontent.com/eyubkh/Portfolio/main/README.md'
   const text = await fetch(baseUrl)
     .then(data => data.text())
 
-  const convert = new showdow.Converter()
-  const html = convert.makeHtml(text)
-  res.status(200).send(html)
+  const regex = /<div id="desc">([\s\S]*?)<\/div>/
+  const result = regex.exec(text)
+
+  if (result) {
+    res.status(200).send(result[0])
+  }
+
+  res.status(300).send('error to fetch')
 }
