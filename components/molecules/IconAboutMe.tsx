@@ -1,28 +1,24 @@
 import { Icon } from "./Icon"
 import { ProcessActionOptions } from "types/lib/processTypes"
 import useProcessContext from "@utils/useProcessContext"
-import { aboutMe } from "@utils/data"
+import Data, { aboutMe } from "@utils/data"
 
 export const IconAboutMe = (): JSX.Element => {
   const { state: processState, dispatch: processDispatch } = useProcessContext()
+  const { title, component, icon } = Data[aboutMe]
 
   const handlerOnClickIcon = (event: any) => {
     event.preventDefault()
-    if (processState.processes[aboutMe.title]) {
+    if (processState.processes[title]) {
       processDispatch({
         type: ProcessActionOptions.MINIMIZED,
-        payload: [aboutMe.title, false]
+        payload: [title, false]
       })
 
     } else {
       processDispatch({
         type: ProcessActionOptions.PROCESSES,
-        payload: {
-          [aboutMe.title]: {
-            component: aboutMe.component(),
-            iconComponent: aboutMe.iconComponent()
-          }
-        }
+        payload: [title, component]
       })
     }
 
@@ -30,10 +26,9 @@ export const IconAboutMe = (): JSX.Element => {
 
   return (
     <Icon
+      title={title}
+      icon={icon}
       handler={handlerOnClickIcon}
-      src={aboutMe.icon}
-    >
-      {aboutMe.title}
-    </Icon>
+    />
   )
 }

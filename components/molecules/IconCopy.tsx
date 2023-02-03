@@ -3,6 +3,10 @@ import Draggable from "react-draggable"
 import Image from "next/image"
 import { useState } from "react"
 import { IconTypes } from "types/global"
+import useProcessContext from "@utils/useProcessContext"
+import { ProcessActionOptions } from "types/lib/processTypes"
+import Data, { aboutMe } from '@utils/data'
+import { AboutMe } from "components/organisms/AboutMe"
 
 const IconComponent = styled.div<any>`
   display: inline-block;
@@ -14,21 +18,35 @@ const IconComponent = styled.div<any>`
   }
 `
 
-export const Icon = ({ icon, title, handler }: IconTypes): JSX.Element => {
+export const IconCopy = ({ icon, title }: IconTypes): JSX.Element => {
   const [onDrag, setOnDrag] = useState(false)
+  const { state: processState, dispatch: processDispatch } = useProcessContext()
+  const { component } = Data[title]
+  const handlerOnClickIcon = (event: any) => {
+    event.preventDefault()
+    if (processState.processes[title]) {
+      processDispatch({
+        type: ProcessActionOptions.MINIMIZED,
+        payload: [title, false]
+      })
 
-  const handlerOnDrag = (event: any) => {
+    } else {
+      processDispatch({
+        type: ProcessActionOptions.PROCESSES,
+        payload: [title, component]
+      })
+    }
+
   }
 
   return (
     <Draggable
-      onDrag={handlerOnDrag}
       onStart={() => setOnDrag(true)}
       onStop={() => setOnDrag(false)}
     >
       <IconComponent
         onDrag={() => onDrag}
-        onClick={handler}
+        onDoubleClick={handlerOnClickIcon}
       >
         <Image
           alt=''
