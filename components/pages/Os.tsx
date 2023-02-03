@@ -1,35 +1,42 @@
 import styled from "styled-components"
 import useProcessContext from "@utils/useProcessContext"
+import { IconCopy } from "components/molecules/IconCopy"
+import { useEffect } from "react"
+import { ProcessActionOptions } from "types/lib/processTypes"
+import data, { programManager } from "@utils/data"
 
 const OsComponent = styled.div<any>`
-position: relative;
+  position: relative;
   height: 100vh;
-  #icons {
-    height: 100vh;
-    display: flex;
-  }
+  width: 100vw;
+
+  display: flex;
+  align-items: end;
 `
 
 export function Os() {
-  const { state: processState } = useProcessContext()
+  const { state: processState, dispatch: processDispatch } = useProcessContext()
   const { processes } = processState
+  const { title, component } = data[programManager]
+  useEffect(() => {
+    processDispatch({
+      type: ProcessActionOptions.PROCESSES,
+      payload: [title, component]
+    })
+  }, [])
   return (
     <OsComponent>
-      <div id="processes">
-        {
-          Object
-            .values(processes)
-            .map(({ component }: any): JSX.Element => component)
-        }
-      </div>
-      <div id="icons">
-        {
-          Object
-            .values(processes)
-            .filter((process: any): any => process.minimized)
-            .map(({ iconComponent }: any): any => iconComponent)
-        }
-      </div>
+      {
+        Object
+          .values(processes)
+          .filter((process: any): any => process.minimized)
+          .map(({ icon }: any): any => <IconCopy key={icon.title} icon={icon.icon} title={icon.title} />)
+      }
+      {
+        Object
+          .values(processes)
+          .map(({ component }: any): JSX.Element => component)
+      }
     </OsComponent>
   )
 }

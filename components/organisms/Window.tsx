@@ -9,6 +9,7 @@ import { WindowTypes } from "types/global"
 import useWindowContext from "@utils/useWindowContext"
 import handlerOnControlledDrag from "@utils/handlerOnControlledDrag"
 import useProcessContext from "@utils/useProcessContext"
+import { ProcessActionOptions } from "types/lib/processTypes"
 
 const WindowComponent = styled.div<any>`
   position: absolute;
@@ -24,17 +25,17 @@ export const Window = ({ title, icon, children }: WindowTypes): JSX.Element => {
   const { state: windowState, dispatch: windowDispatch } = useWindowContext()
   const { isFullScreen, height, width, possition } = windowState
 
-  const { state: processState } = useProcessContext()
+  const { state: processState, dispatch: processDispatch } = useProcessContext()
   const { minimized, id } = processState.processes[title]
-  console.log(minimized)
+
   useEffect(() => {
     windowDispatch({
-      type: WindowActionOptions.ID,
-      id
+      type: WindowActionOptions.INIT,
+      payload: { title, id }
     })
-    windowDispatch({
-      type: WindowActionOptions.TITLE,
-      payload: title
+    processDispatch({
+      type: ProcessActionOptions.INIT,
+      payload: { icon, title }
     })
   }, [])
 
@@ -52,7 +53,11 @@ export const Window = ({ title, icon, children }: WindowTypes): JSX.Element => {
       position={possition}
       onDrag={(event: any, position: any) => handlerOnControlledDrag(event, position, windowDispatch)}
     >
-      <WindowComponent id={windowState.id} {...props} >
+      <WindowComponent
+        key={windowState.id}
+        id={windowState.id}
+        {...props}
+      >
         <WindowHeader />
         <WindowSubHeader />
         <WindowContent>
