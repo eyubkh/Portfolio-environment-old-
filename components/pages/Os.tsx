@@ -1,6 +1,6 @@
 import styled from "styled-components"
 import useProcessContext from "@utils/useProcessContext"
-import { IconCopy } from "components/molecules/IconCopy"
+import { Icon } from "components/molecules/Icon"
 import { useEffect } from "react"
 import { ProcessActionOptions } from "types/lib/processTypes"
 import data, { programManager } from "@utils/data"
@@ -30,7 +30,7 @@ export function Os() {
         Object
           .values(processes)
           .filter((process: any): any => process.minimized)
-          .map(({ icon }: any): any => <IconCopy key={icon.title} icon={icon.icon} title={icon.title} />)
+          .map(({ icon }: any): any => <Icon key={icon.title} icon={icon.icon} title={icon.title} />)
       }
       {
         Object
