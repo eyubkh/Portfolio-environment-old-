@@ -23,6 +23,4 @@ export default async function handler(
   } catch (error) {
     res.status(404).json({ error })
   }
-
-
 }
