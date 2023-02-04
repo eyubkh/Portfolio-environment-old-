@@ -11,8 +11,8 @@ const windowInitialState: WindowStateProps = {
   isFullScreen: false,
   icon: '',
   title: '',
-  height: 300,
-  width: 500,
+  height: 400,
+  width: 700,
 }
 
 export const WindowContext = createContext<any>({ state: windowInitialState } as {
