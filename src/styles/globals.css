@@ -17,3 +17,46 @@ h3 {
   font-weight: bold;
   font-size: 16px;
 }
+
+/****** ReadMe style ******/
+
+#desc h1,
+#desc h2,
+#desc h3,
+#desc h4,
+#desc h5 {
+  font-family: 'Sant-serif';
+}
+
+#desc {
+  padding: 38px 32px;
+}
+
+#desc h1 {
+  margin: 12px 0;
+}
+
+#desc h2 {
+  margin: 8px 0;
+}
+
+#desc p {
+  margin: 6px 0;
+}
+
+#desc figure {
+  margin: 16px 0;
+  width: fit-content;
+}
+
+#desc figure figcaption {
+  text-align: center;
+}
+
+#desc ul {
+  margin-left: 16px;
+}
+
+#desc a {
+  color: #00C200;
+}
