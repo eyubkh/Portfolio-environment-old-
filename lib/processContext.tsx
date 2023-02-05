@@ -5,7 +5,8 @@ import { ChildrenType } from "types/global"
 import { ProcessActionOptions, ProcessStateProps } from "types/lib/processTypes"
 
 const processInitialState: ProcessStateProps = {
-  processes: {}
+  processes: {},
+  zIndex: 1
 }
 
 export const ProcessContext = createContext<any>({ state: processInitialState } as {

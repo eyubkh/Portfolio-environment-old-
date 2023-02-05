@@ -2,7 +2,8 @@ export enum ProcessActionOptions {
   INIT,
   PROCESSES,
   DELETE_PROCESSES,
-  MINIMIZED
+  MINIMIZED,
+  Z_INDEX
 }
 
 export type ProcessActionProps = {
@@ -14,7 +15,8 @@ type ProcessesProps = {
   [key: string]: ProcessesTypes
 }
 export interface ProcessStateProps {
-  processes: ProcessesProps
+  processes: ProcessesProps,
+  zIndex: number
 }
 
 export type ProcessesTypes = {

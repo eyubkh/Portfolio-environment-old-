@@ -19,6 +19,7 @@ const WindowComponent = styled.div<any>`
   width: ${({ isFullScreen, width }) => isFullScreen ? '100%' : width + 'px'};
   height: ${({ isFullScreen, height }) => isFullScreen ? '100vh' : height + 'px'};
   display: ${({ minimized }) => minimized ? 'none' : 'inherit'};
+  z-index: ${({ zIndex }) => zIndex + 1};
 `
 
 export const Window = ({ title, icon, children }: WindowTypes): JSX.Element => {
@@ -39,11 +40,21 @@ export const Window = ({ title, icon, children }: WindowTypes): JSX.Element => {
     })
   }, [])
 
+  const handler = () => {
+    const el = document.getElementById(id)
+    if (el) {
+      el.style.zIndex = processState.zIndex
+      processDispatch({
+        type: ProcessActionOptions.Z_INDEX
+      })
+    }
+  }
   const props = {
     height,
     width,
     isFullScreen,
-    minimized
+    minimized,
+    zIndex: processState.zIndex
   }
 
   return (
@@ -56,6 +67,7 @@ export const Window = ({ title, icon, children }: WindowTypes): JSX.Element => {
       <WindowComponent
         key={windowState.id}
         id={windowState.id}
+        onClick={handler}
         {...props}
       >
         <WindowHeader />

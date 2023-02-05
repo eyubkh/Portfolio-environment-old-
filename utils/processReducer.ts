@@ -57,6 +57,12 @@ export const processReducer: Reducer<ProcessStateProps, ProcessActionProps> = (s
         }
       }
     }
+    case ProcessActionOptions.Z_INDEX: {
+      return {
+        ...state,
+        zIndex: 1 + state.zIndex
+      }
+    }
     default: {
       return state
     }
