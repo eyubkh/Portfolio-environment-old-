@@ -14,7 +14,11 @@ const windowReducer: Reducer<WindowStateProps, WindowActionProps> = (state, acti
       return {
         ...state,
         id,
-        title
+        title,
+        possition: {
+          x: (window.innerWidth / 2) - (state.width / 2),
+          y: (window.innerHeight / 2) - (state.height / 2)
+        }
       }
     }
     case FULLSCREEN: {
