@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import useWindowContext from "@utils/useWindowContext"
+import useWindowContext from "@utils/hooks/useWindowContext"
 import { Black100, Grey200 } from "@utils/tokens"
 import { handlerOnClickWindowMaximize } from "@utils/handlers/onClickWindowMaximize"
 

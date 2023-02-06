@@ -1,6 +1,6 @@
 import styled from "styled-components"
-import useProcessContext from "@utils/useProcessContext"
-import useWindowContext from "@utils/useWindowContext"
+import useProcessContext from "@utils/hooks/useProcessContext"
+import useWindowContext from "@utils/hooks/useWindowContext"
 import { Black100, Grey200 } from "@utils/tokens"
 import { handlerOnClickMinimize } from "@utils/handlers/OnClickMinimize"
 

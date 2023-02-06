@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import useProcessContext from "@utils/useProcessContext"
+import useProcessContext from "@utils/hooks/useProcessContext"
 import { Icon } from "components/molecules/Icon"
 import { useEffect } from "react"
 import { ProcessDispatchEnum } from "types/lib/processTypes"

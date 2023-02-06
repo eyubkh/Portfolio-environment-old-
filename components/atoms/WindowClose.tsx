@@ -1,7 +1,7 @@
 import { handlerOnClickWindowClose } from "@utils/handlers/onClickWindowClose"
 import { Black100, Grey100, Grey200, White100 } from "@utils/tokens"
-import useProcessContext from "@utils/useProcessContext"
-import useWindowContext from "@utils/useWindowContext"
+import useProcessContext from "@utils/hooks/useProcessContext"
+import useWindowContext from "@utils/hooks/useWindowContext"
 import styled from "styled-components"
 
 const WindowCloseComponent = styled.div`

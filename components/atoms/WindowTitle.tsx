@@ -1,5 +1,5 @@
 import { Blue100, White100 } from '@utils/tokens'
-import useWindowContext from '@utils/useWindowContext'
+import useWindowContext from '@utils/hooks/useWindowContext'
 import styled from 'styled-components'
 
 const WindowTitleComponent = styled.strong`
