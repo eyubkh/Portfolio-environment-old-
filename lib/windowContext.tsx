@@ -4,21 +4,18 @@ import { ChildrenType } from "types/global"
 import { WindowDispatchTypes, WindowStateTypes } from "types/lib/windowTypes"
 import reducer from 'utils/windowReducer'
 
-const width = 700
-const height = 400
-
 const windowInitialState: WindowStateTypes = {
   id: '',
   possition: {
-    x: (window.innerWidth / 2) - (width / 2),
-    y: (window.innerHeight / 2) - (height / 2)
+    x: 0,
+    y: 0
   },
   lastPossition: undefined,
   isFullScreen: false,
   icon: '',
   title: '',
-  height,
-  width
+  height: 400,
+  width: 700
 }
 
 export const WindowContext = createContext<any>({ windowState: windowInitialState } as {
