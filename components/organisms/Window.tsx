@@ -57,8 +57,8 @@ export const Window = ({ title, icon, children }: WindowTypes): JSX.Element => {
       onDrag={(event: any, position: any) => handlerOnControlledDrag(event, position, windowDispatch)}
     >
       <WindowComponent
-        key={windowState.id}
-        id={windowState.id}
+        key={id}
+        id={id}
         onClick={() => handlerOnClickWindowFocus({ id, processState, processDispatch })}
         {...props}
       >
