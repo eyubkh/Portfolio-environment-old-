@@ -1,11 +1,11 @@
-import { WindowActionOptions } from "types/lib/windowTypes"
+import { WindowDispatchEnum } from "types/lib/windowTypes"
 
 const handlerOnControlledDrag = (event: any, possition: any, dispatch: any) => {
   event.preventDefault()
 
   const { x, y } = possition
   dispatch({
-    type: WindowActionOptions.POSSITION,
+    type: WindowDispatchEnum.POSSITION,
     payload: { x, y }
   })
 }

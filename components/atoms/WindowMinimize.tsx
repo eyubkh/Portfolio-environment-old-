@@ -2,8 +2,7 @@ import styled from "styled-components"
 import useProcessContext from "@utils/useProcessContext"
 import useWindowContext from "@utils/useWindowContext"
 import { Black100, Grey200 } from "@utils/tokens"
-import { ProcessActionOptions } from "types/lib/processTypes"
-import { WindowActionOptions } from "types/lib/windowTypes"
+import { handlerOnClickMinimize } from "@utils/handlers/OnClickMinimize"
 
 const WindowMinimizeComponent = styled.div`
   position: relative;
@@ -46,15 +45,8 @@ const WindowMinimizeComponent = styled.div`
 `
 
 export const WindowMinimize = (): JSX.Element => {
-  const { state: windowState } = useWindowContext()
-  const { dispatch: processDispatch } = useProcessContext()
+  const { windowState } = useWindowContext()
+  const { processDispatch } = useProcessContext()
 
-  const handlerOnClickMinimize = (event: any) => {
-    event.preventDefault()
-    processDispatch({
-      type: ProcessActionOptions.MINIMIZED,
-      payload: [windowState.title, true]
-    })
-  }
-  return <WindowMinimizeComponent onClick={handlerOnClickMinimize} />
+  return <WindowMinimizeComponent onClick={() => handlerOnClickMinimize(processDispatch, windowState)} />
 }

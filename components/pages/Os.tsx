@@ -2,7 +2,7 @@ import styled from "styled-components"
 import useProcessContext from "@utils/useProcessContext"
 import { Icon } from "components/molecules/Icon"
 import { useEffect } from "react"
-import { ProcessActionOptions } from "types/lib/processTypes"
+import { ProcessDispatchEnum } from "types/lib/processTypes"
 import data, { programManager } from "@utils/data"
 
 const OsComponent = styled.div<any>`
@@ -15,12 +15,12 @@ const OsComponent = styled.div<any>`
 `
 
 export function Os() {
-  const { state: processState, dispatch: processDispatch } = useProcessContext()
+  const { processState, processDispatch } = useProcessContext()
   const { processes } = processState
   const { title, component } = data[programManager]
   useEffect(() => {
     processDispatch({
-      type: ProcessActionOptions.PROCESSES,
+      type: ProcessDispatchEnum.PROCESSES,
       payload: [title, component]
     })
   }, [])

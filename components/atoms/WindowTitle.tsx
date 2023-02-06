@@ -13,7 +13,7 @@ const WindowTitleComponent = styled.strong`
 `
 
 export const WindowTitle = (): JSX.Element => {
-  const { state: windowState } = useWindowContext()
+  const { windowState } = useWindowContext()
 
   return <WindowTitleComponent>
     <h3>{windowState.title}</h3>

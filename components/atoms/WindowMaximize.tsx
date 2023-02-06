@@ -1,7 +1,7 @@
 import styled from "styled-components"
 import useWindowContext from "@utils/useWindowContext"
 import { Black100, Grey200 } from "@utils/tokens"
-import { WindowActionOptions } from "types/lib/windowTypes"
+import { handlerOnClickWindowMaximize } from "@utils/handlers/onClickWindowMaximize"
 
 const WindowMaximizeComponent = styled.div`
   position: relative;
@@ -42,13 +42,7 @@ const WindowMaximizeComponent = styled.div`
 `
 
 export const WindowMaximize = () => {
-  const { dispatch: windowDispatch } = useWindowContext()
+  const { windowDispatch } = useWindowContext()
 
-  const handlerMax = () => {
-    windowDispatch({
-      type: WindowActionOptions.FULLSCREEN
-    })
-  }
-
-  return <WindowMaximizeComponent onClick={handlerMax} />
+  return <WindowMaximizeComponent onClick={() => handlerOnClickWindowMaximize(windowDispatch)} />
 }

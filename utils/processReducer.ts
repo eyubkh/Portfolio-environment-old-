@@ -1,16 +1,16 @@
 import { Reducer } from "react"
 import {
-  ProcessActionOptions,
-  ProcessActionProps,
-  ProcessStateProps
+  ProcessDispatchEnum,
+  ProcessDispatchTypes,
+  ProcessStateTypes
 } from "types/lib/processTypes"
 import { uuid as v4 } from "uuidv4"
 
-export const processReducer: Reducer<ProcessStateProps, ProcessActionProps> = (state, action) => {
+export const processReducer: Reducer<ProcessStateTypes, ProcessDispatchTypes> = (state, action) => {
   const { type, payload } = action
 
   switch (type) {
-    case ProcessActionOptions.INIT: {
+    case ProcessDispatchEnum.INIT: {
       const key = payload.title
       return {
         ...state,
@@ -23,7 +23,7 @@ export const processReducer: Reducer<ProcessStateProps, ProcessActionProps> = (s
         }
       }
     }
-    case ProcessActionOptions.PROCESSES: {
+    case ProcessDispatchEnum.PROCESSES: {
       const key = payload[0]
       const id = v4()
       return {
@@ -39,13 +39,13 @@ export const processReducer: Reducer<ProcessStateProps, ProcessActionProps> = (s
         }
       }
     }
-    case ProcessActionOptions.DELETE_PROCESSES: {
+    case ProcessDispatchEnum.DELETE_PROCESSES: {
       delete state.processes[payload]
       return {
         ...state
       }
     }
-    case ProcessActionOptions.MINIMIZED: {
+    case ProcessDispatchEnum.MINIMIZED: {
       return {
         ...state,
         processes: {
@@ -57,7 +57,7 @@ export const processReducer: Reducer<ProcessStateProps, ProcessActionProps> = (s
         }
       }
     }
-    case ProcessActionOptions.Z_INDEX: {
+    case ProcessDispatchEnum.Z_INDEX: {
       return {
         ...state,
         zIndex: 1 + state.zIndex

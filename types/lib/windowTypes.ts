@@ -1,11 +1,13 @@
-export enum WindowActionOptions {
+import { Dispatch } from "react"
+
+export enum WindowDispatchEnum {
   INIT,
   FULLSCREEN,
   TITLE,
   POSSITION
 }
 
-export type WindowStateProps = {
+export type WindowStateTypes = {
   id: string,
   title: string
   icon: string,
@@ -16,7 +18,7 @@ export type WindowStateProps = {
   height: number,
 }
 
-export type WindowActionProps = {
-  type: WindowActionOptions,
+export type WindowDispatchTypes = {
+  type: WindowDispatchEnum,
   payload?: any
 }

@@ -2,7 +2,6 @@ import { WindowProvider } from "lib/windowContext"
 import { Window } from "./Window"
 import { useEffect, useState } from "react"
 import data, { lim } from "@utils/data"
-import parser from 'html-react-parser'
 import { fetchingMarkDown } from "@utils/fetchingMarkDown"
 
 export const Lim = () => {

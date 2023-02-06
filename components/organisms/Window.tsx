@@ -4,12 +4,13 @@ import { WindowContent } from "components/molecules/WindowContent"
 import { WindowHeader } from "components/molecules/WindowHeader"
 import { WindowSubHeader } from "components/molecules/WindowSubHeader"
 import { useEffect } from "react"
-import { WindowActionOptions } from "types/lib/windowTypes"
+import { WindowDispatchEnum } from "types/lib/windowTypes"
 import { WindowTypes } from "types/global"
 import useWindowContext from "@utils/useWindowContext"
-import handlerOnControlledDrag from "@utils/handlerOnControlledDrag"
+import handlerOnControlledDrag from "@utils/handlers/onControlledDrag"
 import useProcessContext from "@utils/useProcessContext"
-import { ProcessActionOptions } from "types/lib/processTypes"
+import { ProcessDispatchEnum } from "types/lib/processTypes"
+import { handlerOnClickWindowFocus } from "@utils/handlers/onClickWindowfocus"
 
 const WindowComponent = styled.div<any>`
   position: absolute;
@@ -23,32 +24,23 @@ const WindowComponent = styled.div<any>`
 `
 
 export const Window = ({ title, icon, children }: WindowTypes): JSX.Element => {
-  const { state: windowState, dispatch: windowDispatch } = useWindowContext()
+  const { windowState, windowDispatch } = useWindowContext()
   const { isFullScreen, height, width, possition } = windowState
 
-  const { state: processState, dispatch: processDispatch } = useProcessContext()
+  const { processState, processDispatch } = useProcessContext()
   const { minimized, id } = processState.processes[title]
 
   useEffect(() => {
     windowDispatch({
-      type: WindowActionOptions.INIT,
+      type: WindowDispatchEnum.INIT,
       payload: { title, id }
     })
     processDispatch({
-      type: ProcessActionOptions.INIT,
+      type: ProcessDispatchEnum.INIT,
       payload: { icon, title }
     })
   }, [])
 
-  const handler = () => {
-    const el = document.getElementById(id)
-    if (el) {
-      el.style.zIndex = processState.zIndex
-      processDispatch({
-        type: ProcessActionOptions.Z_INDEX
-      })
-    }
-  }
   const props = {
     height,
     width,
@@ -67,7 +59,7 @@ export const Window = ({ title, icon, children }: WindowTypes): JSX.Element => {
       <WindowComponent
         key={windowState.id}
         id={windowState.id}
-        onClick={handler}
+        onClick={() => handlerOnClickWindowFocus({ id, processState, processDispatch })}
         {...props}
       >
         <WindowHeader />

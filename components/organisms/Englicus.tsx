@@ -8,7 +8,6 @@ export const Englicus = () => {
   const { title, icon, url } = data[englicus]
   const [readme, setReadme] = useState<any>(null)
   useEffect(() => {
-
     (async function () {
       const response = await fetchingMarkDown(url)
       setReadme(response)

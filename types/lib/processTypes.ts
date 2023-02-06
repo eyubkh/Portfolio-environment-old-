@@ -1,4 +1,6 @@
-export enum ProcessActionOptions {
+import { Dispatch } from "react"
+
+export enum ProcessDispatchEnum {
   INIT,
   PROCESSES,
   DELETE_PROCESSES,
@@ -6,16 +8,20 @@ export enum ProcessActionOptions {
   Z_INDEX
 }
 
-export type ProcessActionProps = {
-  type: ProcessActionOptions,
+export interface ProcessTypes {
+  processState: ProcessStateTypes,
+  processDispatch: Dispatch<ProcessDispatchTypes>
+}
+
+export type ProcessDispatchTypes = {
+  type: ProcessDispatchEnum,
   payload?: any
 }
 
-type ProcessesProps = {
-  [key: string]: ProcessesTypes
-}
-export interface ProcessStateProps {
-  processes: ProcessesProps,
+export interface ProcessStateTypes {
+  processes: {
+    [key: string]: ProcessesTypes
+  },
   zIndex: number
 }
 
