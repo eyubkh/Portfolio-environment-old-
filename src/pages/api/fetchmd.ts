@@ -8,13 +8,13 @@ export default async function handler(
   const url = req.body
   const baseUrl = 'https://raw.githubusercontent.com'
 
-
   try {
     const text = await fetch(baseUrl + url)
       .then(data => data.text())
 
     const regex = /<div id="desc">([\s\S]*?)<\/div>/
     const result = regex.exec(text)
+
     if (result) {
       res.status(200).send(result[0])
     } else {

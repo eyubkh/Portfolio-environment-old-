@@ -1,6 +1,4 @@
-import { Dispatch } from "react"
-import { ProcessDispatchTypes, ProcessTypes } from "./lib/processTypes"
-import { WindowStateTypes } from "./lib/windowTypes"
+import { ProcessTypes } from "./lib/processTypes"
 
 export interface ChildrenType {
   children: JSX.Element | JSX.Element[]

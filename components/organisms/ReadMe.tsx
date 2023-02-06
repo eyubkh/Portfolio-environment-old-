@@ -12,9 +12,6 @@ export const ReadMe = ({ title, icon }: readmeTypes): JSX.Element => {
   const [readme, setReadme] = useState('')
   useEffect(() => {
     (async function () {
-      const response = await window.fetch('/api/fetchmd')
-        .then(data => data.text())
-      setReadme(response)
     })()
   }, [])
 

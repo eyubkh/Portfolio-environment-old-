@@ -54,7 +54,7 @@ export const Window = ({ title, icon, children }: WindowTypes): JSX.Element => {
       disabled={isFullScreen}
       handle="strong"
       position={possition}
-      onDrag={(event: any, position: any) => handlerOnControlledDrag(event, position, windowDispatch)}
+      onDrag={(event: any, position: any) => handlerOnControlledDrag(position, windowDispatch)}
     >
       <WindowComponent
         key={id}

@@ -1,5 +1,3 @@
-import { Dispatch } from "react"
-
 export enum WindowDispatchEnum {
   INIT,
   FULLSCREEN,
