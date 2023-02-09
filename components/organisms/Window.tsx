@@ -11,12 +11,13 @@ import handlerOnControlledDrag from "@utils/handlers/onControlledDrag"
 import useProcessContext from "@utils/hooks/useProcessContext"
 import { ProcessDispatchEnum } from "types/lib/processTypes"
 import { handlerOnClickWindowFocus } from "@utils/handlers/onClickWindowfocus"
+import { Grey100 } from "@utils/tokens"
 
 const WindowComponent = styled.div<any>`
   position: absolute;
   display: flex;
   flex-direction: column;
-  border: 1px solid red;
+  border: 1px solid ${Grey100};
   width: ${({ isFullScreen, width }) => isFullScreen ? '100%' : width + 'px'};
   height: ${({ isFullScreen, height }) => isFullScreen ? '100vh' : height + 'px'};
   display: ${({ minimized }) => minimized ? 'none' : 'inherit'};
