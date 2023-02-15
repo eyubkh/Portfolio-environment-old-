@@ -1,9 +1,11 @@
 import styled from 'styled-components'
 import { Black100 } from '@utils/tokens'
 import { WindowClose } from 'components/atoms/WindowClose'
-import { WindowMaximize } from 'components/atoms/WindowMaximize'
 import { WindowMinimize } from 'components/atoms/WindowMinimize'
 import { WindowTitle } from 'components/atoms/WindowTitle'
+import useWindowContext from '@utils/hooks/useWindowContext'
+import { handlerOnClickWindowMaximize } from '@utils/handlers/onClickWindowMaximize'
+import { WindowMaximize } from 'components/atoms/WindowMaximize'
 
 const WindowHeaderComponent = styled.div`
   display: flex;
@@ -12,8 +14,12 @@ const WindowHeaderComponent = styled.div`
 `
 
 export const WindowHeader = (): JSX.Element => {
+  const { windowDispatch } = useWindowContext()
+  
   return (
-    <WindowHeaderComponent>
+    <WindowHeaderComponent
+      onDoubleClick={() => handlerOnClickWindowMaximize(windowDispatch)}
+    >
       <WindowClose />
       <WindowTitle />
       <WindowMaximize />
