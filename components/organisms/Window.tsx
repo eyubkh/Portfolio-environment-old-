@@ -18,15 +18,15 @@ const WindowComponent = styled.div<any>`
   display: flex;
   flex-direction: column;
   border: 1px solid ${Grey100};
-  width: ${({ isFullScreen, width }) => isFullScreen ? '100%' : width + 'px'};
-  height: ${({ isFullScreen, height }) => isFullScreen ? '100vh' : height + 'px'};
+  width: ${({ isFullScreen }) => isFullScreen ? '100%' : 'auto'};
+  height: ${({ isFullScreen }) => isFullScreen ? '100vh' : 'auto'};
   display: ${({ minimized }) => minimized ? 'none' : 'inherit'};
   z-index: ${({ zIndex }) => zIndex + 1};
 `
 
 export const Window = ({ title, icon, children }: WindowTypes): JSX.Element => {
   const { windowState, windowDispatch } = useWindowContext()
-  const { isFullScreen, height, width, possition } = windowState
+  const { isFullScreen, possition } = windowState
 
   const { processState, processDispatch } = useProcessContext()
   const { minimized, id } = processState.processes[title]
@@ -43,8 +43,6 @@ export const Window = ({ title, icon, children }: WindowTypes): JSX.Element => {
   }, [])
 
   const props = {
-    height,
-    width,
     isFullScreen,
     minimized,
     zIndex: processState.zIndex
@@ -64,7 +62,6 @@ export const Window = ({ title, icon, children }: WindowTypes): JSX.Element => {
         {...props}
       >
         <WindowHeader />
-        <WindowSubHeader />
         <WindowContent>
           {children}
         </WindowContent>
