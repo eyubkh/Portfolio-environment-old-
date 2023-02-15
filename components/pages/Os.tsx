@@ -11,7 +11,7 @@ const OsComponent = styled.div<any>`
   width: 100vw;
 
   display: flex;
-  align-items: end;
+  align-items: start;
 `
 
 export function Os() {
