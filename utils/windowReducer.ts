@@ -17,7 +17,7 @@ const windowReducer: Reducer<WindowStateTypes, WindowDispatchTypes> = (state, ac
         title,
         possition: {
           x: (window.innerWidth / 2) - (state.width / 2),
-          y: - state.height / 2
+          y:(window.innerHeight / 2) - (state.height / 2)
         }
       }
     }
