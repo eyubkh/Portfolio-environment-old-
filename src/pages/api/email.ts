@@ -6,23 +6,36 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  sgMail.setApiKey(process.env.SENDGRID_API_KEY)
+  const { from, subject, text } = req.body
 
-  const msg = {
+  const message = {
     to: 'eyub.kh@gmail.com', // Change to your recipient
     from: 'ayub.kh@outlook.com', // Change to your verified sender
-    subject: 'Sending with SendGrid is Fun',
-    text: 'and easy to do anywhere, even with Node.js',
-    html: '<strong>and easy to do anywhere, even with Node.js</strong>',
+    subject: 'Email sended from my portfolio',
+    text,
+    html: `
+    <p>From: ${from}</p>
+    <p>Subject: ${subject} </p>
+    <p>${text}</p>
+    `
   }
-
-  sgMail  
-    .send(msg)
+  
+  sgMail.setApiKey(process.env.SENDGRID_API_KEY)
+    sgMail  
+    .send(message)
     .then(() => {
-      res.status(200).send('email send')
+      res.status(200).json({
+        error: false,
+        message: 'Email send'
+      })
     })
-    .catch((error: any) => {
-      console.log(error)
-      res.status(200).send('email error')
+  .catch(error => {
+    console.log(error )
+      res.status(404).json({
+        error: true,
+        message: 'Error on send email'
+      })
     })
+
+
 }
