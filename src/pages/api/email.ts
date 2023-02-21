@@ -19,7 +19,7 @@ export default async function handler(
     <p>${text}</p>
     `
   }
-  
+
   sgMail.setApiKey(process.env.SENDGRID_API_KEY)
     sgMail  
     .send(message)
@@ -36,6 +36,4 @@ export default async function handler(
         message: 'Error on send email'
       })
     })
-
-
 }
