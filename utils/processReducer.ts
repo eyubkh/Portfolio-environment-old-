@@ -57,10 +57,10 @@ export const processReducer: Reducer<ProcessStateTypes, ProcessDispatchTypes> = 
         }
       }
     }
-    case ProcessDispatchEnum.Z_INDEX: {
+    case ProcessDispatchEnum.WINDOW_FOCUS: {
       return {
         ...state,
-        zIndex: 1 + state.zIndex
+        windowFocus: payload
       }
     }
     default: {

@@ -5,7 +5,7 @@ export enum ProcessDispatchEnum {
   PROCESSES,
   DELETE_PROCESSES,
   MINIMIZED,
-  Z_INDEX
+  WINDOW_FOCUS
 }
 
 export interface ProcessTypes {
@@ -22,7 +22,7 @@ export interface ProcessStateTypes {
   processes: {
     [key: string]: ProcessesTypes
   },
-  zIndex: number
+  windowFocus: string
 }
 
 export type ProcessesTypes = {

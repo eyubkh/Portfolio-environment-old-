@@ -5,7 +5,7 @@ import { ProcessStateTypes, ProcessTypes } from "types/lib/processTypes"
 
 const processInitialState: ProcessStateTypes = {
   processes: {},
-  zIndex: 1
+  windowFocus: ''
 }
 
 export const ProcessContext = createContext<any>({ processState: processInitialState } as ProcessTypes)

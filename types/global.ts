@@ -1,4 +1,5 @@
-import { ProcessTypes } from "./lib/processTypes"
+import { Dispatch } from "react"
+import { ProcessDispatchTypes } from "./lib/processTypes"
 
 export interface ChildrenType {
   children: JSX.Element | JSX.Element[]
@@ -18,7 +19,9 @@ export interface WindowTypes extends ChildrenType, TitleType {
   setWidth?: number
 }
 
-export interface HandlerWindowfocus extends ProcessTypes, IdType { }
+export interface HandlerWindowfocus extends TitleType {
+  processDispatch: Dispatch<ProcessDispatchTypes>
+}
 
 export type IconTypes = {
   icon: string,

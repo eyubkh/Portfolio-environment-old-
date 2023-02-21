@@ -18,7 +18,7 @@ const WindowComponent = styled.div<any>`
   flex-direction: column;
   border: 1px solid ${Grey100};
   display: ${({ minimized, isLoading }) => minimized | isLoading ? 'none' : 'initial'};
-  z-index: ${({ zIndex }) => zIndex + 1};
+  z-index: ${({ isFocus }) => isFocus ? 2 : 1};
   overflow: hidden;
   resize: ${({ isFullScreen }) => isFullScreen ? 'none' : 'both'};
 `
@@ -50,7 +50,7 @@ export const Window = ({ title, icon, children, setHeight, setWidth }: WindowTyp
     isLoading,
     isFullScreen,
     minimized,
-    zIndex: processState.zIndex
+    isFocus: processState.windowFocus === title
   }
 
   return (
@@ -64,7 +64,7 @@ export const Window = ({ title, icon, children, setHeight, setWidth }: WindowTyp
     >
       <WindowComponent
         id={id} 
-        onClick={() => handlerOnClickWindowFocus({ id, processState, processDispatch })}
+        onClick={() => handlerOnClickWindowFocus({ processDispatch, title })}
         style={{ 'width': isFullScreen ? '100%' : width + 'px', "height": isFullScreen ? '100%' : height + 'px' }}
         {...props}
       >
