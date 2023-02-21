@@ -6,6 +6,7 @@ import reducer from 'utils/windowReducer'
 
 const windowInitialState: WindowStateTypes = {
   id: '',
+  isLoading:  true,
   possition: { x: 0, y: 0 },
   lastPossition: undefined,
   isFullScreen: false,
