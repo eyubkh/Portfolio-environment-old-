@@ -5,6 +5,11 @@ export const handlerOnClickIcon = (
   title: string,
   { processDispatch, processState }: ProcessTypes
 ) => {
+  processDispatch({
+    type: ProcessDispatchEnum.WINDOW_FOCUS,
+    payload: title
+  })
+  
   if (processState.processes[title]) {
     processDispatch({
       type: ProcessDispatchEnum.MINIMIZED,
@@ -16,11 +21,6 @@ export const handlerOnClickIcon = (
     processDispatch({
       type: ProcessDispatchEnum.PROCESSES,
       payload: [title, component]
-    })
-
-    processDispatch({
-      type: ProcessDispatchEnum.WINDOW_FOCUS,
-      payload: title
     })
   }
 
