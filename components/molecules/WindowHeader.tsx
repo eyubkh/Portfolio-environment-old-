@@ -11,6 +11,7 @@ const WindowHeaderComponent = styled.div`
   display: flex;
   width: 100%;
   border: 1px solid ${Black100};
+  user-select: none;
 `
 
 export const WindowHeader = (): JSX.Element => {
@@ -22,8 +23,8 @@ export const WindowHeader = (): JSX.Element => {
     >
       <WindowClose />
       <WindowTitle />
-      <WindowMaximize />
       <WindowMinimize />
+      <WindowMaximize />
     </WindowHeaderComponent>
   )
 }
