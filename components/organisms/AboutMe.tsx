@@ -19,6 +19,8 @@ export const AboutMe = (): JSX.Element => {
       <Window
         title={title}
         icon={icon}
+        setHeight={600}
+        setWidth={800}
       >
         {readme}
       </Window>
