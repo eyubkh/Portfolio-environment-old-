@@ -8,14 +8,14 @@ export const handlerOnClickIcon = (
     processState
   }: ProcessTypes
 ) => {
-  const { component } = data[title]
   if (processState.processes[title]) {
     processDispatch({
       type: ProcessDispatchEnum.MINIMIZED,
       payload: [title, false]
     })
-
   } else {
+    const { component } = data[title]
+    
     processDispatch({
       type: ProcessDispatchEnum.PROCESSES,
       payload: [title, component]
