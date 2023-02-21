@@ -2,7 +2,6 @@ import styled from "styled-components"
 import Draggable from "react-draggable"
 import { WindowContent } from "components/molecules/WindowContent"
 import { WindowHeader } from "components/molecules/WindowHeader"
-import { WindowSubHeader } from "components/molecules/WindowSubHeader"
 import { useEffect } from "react"
 import { WindowDispatchEnum } from "types/lib/windowTypes"
 import { WindowTypes } from "types/global"
@@ -18,15 +17,15 @@ const WindowComponent = styled.div<any>`
   display: flex;
   flex-direction: column;
   border: 1px solid ${Grey100};
-  width: ${({ isFullScreen }) => isFullScreen ? '100%' : 'auto'};
-  height: ${({ isFullScreen }) => isFullScreen ? '100vh' : 'auto'};
-  display: ${({ minimized }) => minimized ? 'none' : 'inherit'};
+  display: ${({ minimized, isLoading }) => minimized | isLoading ? 'none' : 'initial'};
   z-index: ${({ zIndex }) => zIndex + 1};
+  overflow: hidden;
+  resize: ${({ isFullScreen }) => isFullScreen ? 'none' : 'both'};
 `
 
-export const Window = ({ title, icon, children }: WindowTypes): JSX.Element => {
+export const Window = ({ title, icon, children, setHeight, setWidth }: WindowTypes): JSX.Element => {
   const { windowState, windowDispatch } = useWindowContext()
-  const { isFullScreen, possition } = windowState
+  const { isFullScreen, possition, isLoading, height, width } = windowState
 
   const { processState, processDispatch } = useProcessContext()
   const { minimized, id } = processState.processes[title]
@@ -34,7 +33,12 @@ export const Window = ({ title, icon, children }: WindowTypes): JSX.Element => {
   useEffect(() => {
     windowDispatch({
       type: WindowDispatchEnum.INIT,
-      payload: { title, id }
+      payload: { 
+        title, 
+        id,
+        height: setHeight,
+        width: setWidth
+      }
     })
     processDispatch({
       type: ProcessDispatchEnum.INIT,
@@ -43,6 +47,7 @@ export const Window = ({ title, icon, children }: WindowTypes): JSX.Element => {
   }, [])
 
   const props = {
+    isLoading,
     isFullScreen,
     minimized,
     zIndex: processState.zIndex
@@ -53,12 +58,14 @@ export const Window = ({ title, icon, children }: WindowTypes): JSX.Element => {
       disabled={isFullScreen}
       handle="strong"
       position={possition}
-      onDrag={(event: any, position: any) => handlerOnControlledDrag(position, windowDispatch)}
+      onDrag={(event: any, position: any) => {
+        handlerOnControlledDrag(position, windowDispatch)
+      }}
     >
       <WindowComponent
-        key={id}
-        id={id}
+        id={id} 
         onClick={() => handlerOnClickWindowFocus({ id, processState, processDispatch })}
+        style={{ 'width': isFullScreen ? '100%' : width + 'px', "height": isFullScreen ? '100%' : height + 'px' }}
         {...props}
       >
         <WindowHeader />

@@ -18,6 +18,8 @@ export const Englicus = () => {
       <Window
         title={title}
         icon={icon}
+        setHeight={600}
+        setWidth={800}
       >
         {readme}
       </Window>

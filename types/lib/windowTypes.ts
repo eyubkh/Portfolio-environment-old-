@@ -7,6 +7,7 @@ export enum WindowDispatchEnum {
 
 export type WindowStateTypes = {
   id: string,
+  isLoading: boolean,
   title: string
   icon: string,
   possition: { x: number, y: number },

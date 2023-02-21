@@ -13,7 +13,9 @@ export interface IdType {
 }
 
 export interface WindowTypes extends ChildrenType, TitleType {
-  icon: string
+  icon: string,
+  setHeight?: number,
+  setWidth?: number
 }
 
 export interface HandlerWindowfocus extends ProcessTypes, IdType { }
