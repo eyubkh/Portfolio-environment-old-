@@ -26,6 +26,7 @@ export const processReducer: Reducer<ProcessStateTypes, ProcessDispatchTypes> = 
     case ProcessDispatchEnum.PROCESSES: {
       const key = payload[0]
       const id = uuid_v4()
+
       return {
         ...state,
         processes: {
@@ -41,18 +42,22 @@ export const processReducer: Reducer<ProcessStateTypes, ProcessDispatchTypes> = 
     }
     case ProcessDispatchEnum.DELETE_PROCESSES: {
       delete state.processes[payload]
+
       return {
         ...state
       }
     }
     case ProcessDispatchEnum.MINIMIZED: {
+      const title = payload[0]
+      const isMinimized = payload[1]
+
       return {
         ...state,
         processes: {
           ...state.processes,
-          [payload[0]]: {
-            ...state.processes[payload[0]],
-            minimized: payload[1]
+          [title]: {
+            ...state.processes[title],
+            minimized: isMinimized
           }
         }
       }
