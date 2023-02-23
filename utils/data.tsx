@@ -1,4 +1,5 @@
 import { AboutMe } from "components/organisms/AboutMe"
+import { Curriculum } from "components/organisms/Curriculum"
 import { Englicus } from "components/organisms/Englicus"
 import { Lim } from "components/organisms/Lim"
 import { ProgramManager } from "components/organisms/ProgramManager"
@@ -11,6 +12,7 @@ export const programManager: string = 'Program Manager'
 export const projects: string = 'Projects'
 export const englicus: string = 'Englicus'
 export const lim: string = 'Lim'
+export const curriculum: string = 'Curiculum'
 
 
 export default {
@@ -28,12 +30,14 @@ export default {
   [programManager]: {
     title: programManager,
     icon: '/icons/PROGM008.ICO',
-    component: (id: string) => <ProgramManager key={id} />
+    component: (id: string) => <ProgramManager key={id} />,
+    content: [aboutMe, projects, sendNote, curriculum]
   },
   [projects]: {
     title: projects,
     icon: '/icons/PROGM008.ICO',
-    component: (id: string) => <Projects key={id} />
+    component: (id: string) => <Projects key={id} />,
+    content: [englicus, lim]
   },
   [englicus]: {
     title: englicus,
@@ -46,5 +50,10 @@ export default {
     icon: '/icons/COMMD001.ICO',
     url: '/eyubkh/Lim/main/README.md',
     component: (id: string) => <Lim key={id} />
+  },
+  [curriculum]: {
+    title: curriculum,
+    icon: '/icons/COMMD001.ICO',
+    component: (id: string) => <Curriculum key={id} />
   }
 }
