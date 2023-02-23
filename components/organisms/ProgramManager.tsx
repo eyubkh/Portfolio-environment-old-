@@ -4,7 +4,7 @@ import data, { programManager, aboutMe, projects, sendNote } from '@utils/data'
 import { Icon } from 'components/molecules/Icon'
 
 export const ProgramManager = () => {
-  const { title, icon } = data[programManager]
+  const { title, icon, content = [] } = data[programManager]
 
   return (
     <WindowProvider>
@@ -12,18 +12,12 @@ export const ProgramManager = () => {
         title={title}
         icon={icon}
       >
-        <Icon
-          icon={data[aboutMe].icon}
-          title={data[aboutMe].title}
-        />
-        <Icon
-          icon={data[projects].icon}
-          title={data[projects].title}
-        />
-        <Icon
-          icon={data[sendNote].icon}
-          title={data[sendNote].title}
-        />
+        {
+          content.map((ref: string): JSX.Element => (<Icon
+            icon={data[ref].icon}
+            title={data[ref].title}
+          />))
+        }
       </Window>
     </WindowProvider>
   )
