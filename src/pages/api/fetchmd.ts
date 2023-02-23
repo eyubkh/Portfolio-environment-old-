@@ -20,7 +20,8 @@ export default async function handler(
     } else {
       throw new Error('Error to find <div id="desc"> on the text')
     }
-  } catch (error) {
-    res.status(404).json({ error })
+  } catch (error: any) {
+    console.log(error)
+    res.status(404).json({ error: true, message: error.message })
   }
 }
