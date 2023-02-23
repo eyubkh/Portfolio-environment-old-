@@ -11,17 +11,19 @@ const windowReducer: Reducer<WindowStateTypes, WindowDispatchTypes> = (state, ac
   switch (type) {
     case WindowDispatchEnum.INIT: {
       let { id, title, height, width } = payload
+      width = width ? width : state.width
+      height = height ? height : state.height
 
       return {
         ...state,
         id,
         title,
         isLoading: false,
-        height: height ? height : state.height,
-        width: width ? width : state.width,
+        height,
+        width,
         possition: {
-          x: (window.innerWidth / 2) - (state.width / 2) + Math.random() * 30 ,
-          y:(window.innerHeight / 2) - (state.height / 2) + Math.random() * 30 
+          x: (window.innerWidth / 2) - (width / 2) + Math.random() * 50 - 25,
+          y:(window.innerHeight / 2) - (height / 2) + Math.random() * 50 - 25
         }
       }
     }
