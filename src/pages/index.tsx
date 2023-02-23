@@ -1,7 +1,10 @@
-export default function Home() {
+import { ProcessProvider } from "lib/processContext";
+import { Os } from "../../components/pages/Os";
+
+export default function OsPage() {
   return (
-    <>
-    <h1>Hello world</h1>
-    </>
+    <ProcessProvider>
+      <Os />
+    </ProcessProvider>
   )
 }
