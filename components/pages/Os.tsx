@@ -17,13 +17,19 @@ const OsComponent = styled.div<any>`
 export function Os() {
   const { processState, processDispatch } = useProcessContext()
   const { processes } = processState
+  
   const { title, component } = data[programManager]
+  
   useEffect(() => {
     processDispatch({
       type: ProcessDispatchEnum.PROCESSES,
       payload: [title, component]
     })
   }, [])
+
+  if(processState.processes[title] === undefined) {
+    return <h1>Bye</h1>
+  }
   return (
     <OsComponent>
       {
