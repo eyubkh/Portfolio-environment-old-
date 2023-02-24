@@ -11,7 +11,6 @@ const OsComponent = styled.div<any>`
   width: 100vw;
 
   display: flex;
-  align-items: start;
 `
 
 export function Os() {
@@ -26,10 +25,6 @@ export function Os() {
       payload: [title, component]
     })
   }, [])
-
-  if(processState.processes[title] === undefined) {
-    return <h1>Bye</h1>
-  }
   return (
     <OsComponent>
       {
