@@ -21,7 +21,6 @@ export default async function handler(
       throw new Error('Error to find <div id="desc"> on the text')
     }
   } catch (error: any) {
-    console.log(error)
     res.status(404).json({ error: true, message: error.message })
   }
 }
