@@ -4,6 +4,7 @@ import data, { sendNote } from "@utils/data"
 import styled from "styled-components"
 import {  Black100, Grey200 } from "@utils/tokens"
 import { fetchingEmail } from "@utils/fetchingEmail"
+import { useState } from "react"
 
 const SendNoteComponent = styled.form`
   height: 100%;
@@ -65,18 +66,20 @@ const SendNoteComponent = styled.form`
   }
 
 `
+const initValue = {
+  from: '',
+  subject: '',
+  text: ''
+}
 
 export const SendNote = () => {
   const { title, icon } = data[sendNote]
+  const [value, setValue] = useState(initValue)
 
   const handlerFormSubmit = async (event: any) => {
     event.preventDefault()
-    const object = {
-      from: event.target[6].value,
-      subject: event.target[7].value,
-      text: event.target[8].value
-    }
-    const res = await fetchingEmail(object)
+    await fetchingEmail(value)
+    setValue(initValue)
   } 
 
   return (
@@ -103,14 +106,28 @@ export const SendNote = () => {
           </li>
           <li className="form-row">
             <label htmlFor="email">From:</label>
-            <input type="email" id="email" />
+            <input 
+              id="email" 
+              type="email" 
+              value={value.from} 
+              onChange={({ target }) => setValue({ ...value, from: target.value})} 
+            />
           </li>
           <li className="form-row">
             <label htmlFor="subject" >Subject:</label>
-            <input type="text" id="subject" />
+            <input 
+              id="subject" 
+              type="text" 
+              value={value.subject} 
+              onChange={({ target }) => setValue({ ...value, subject: target.value})} 
+            />
           </li>
         </ul>
-        <textarea id="textarea"></textarea>
+        <textarea 
+          id="textarea"
+          value={value.text} 
+          onChange={({ target }) => setValue({ ...value, text: target.value})} 
+        ></textarea>
       </SendNoteComponent>
       </Window>
     </WindowProvider>
