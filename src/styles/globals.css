@@ -13,10 +13,58 @@ body {
   overflow: hidden;
 }
 
-h3 {
+#title h3 {
   font-weight: bold;
   font-size: 16px;
 }
+
+/****** Curriculum style ******/
+.doc-content table{
+  /* background-color: brown; */
+  border-spacing: 30px;
+}
+.doc-content .title {
+  /* background-color: yellow; */
+  font-size: xx-large;
+  font-family: 'Sant-serif';
+  font-weight: bold;
+}
+.doc-content .subtitle {
+  /* background-color: green; */
+  font-size: x-large;
+  font-family: 'Sant-serif';
+  font-weight: bold;
+}
+.doc-content ul {
+  /* background-color: aqua; */
+  margin-left: 16px;
+  margin-bottom: 16px;
+}
+
+.doc-content h1 {
+  /* background-color: blue; */
+  font-size: larger;
+  margin-top: 16px;
+}
+.doc-content h2 {
+  /* background-color: orange; */
+  font-size: medium;
+  margin-top: 4px;
+}
+.doc-content h2 span:last-child {
+  /* background-color: purple; */
+  font-size: medium;
+  font-weight: lighter;
+  font-style: italic;
+}
+.doc-content h3 {
+  /* background-color: orangered; */
+  font-size: small;
+  margin-bottom: 8px;
+  font-weight: normal;
+}
+
+
 
 /****** ReadMe style ******/
 
