@@ -2,15 +2,17 @@ import { WindowProvider } from "lib/windowContext"
 import { Window } from "./Window"
 import data, { curriculum } from "@utils/data"
 import { useEffect, useState } from "react"
+import React from "react"
+import { fetchCurriculum } from "@utils/fetch/fetchingCurriculum"
+
 
 export const Curriculum = (): JSX.Element => {
   const { title, icon } = data[curriculum]
   const [readme, setReadme] = useState<any | null>(null)
+
   useEffect(() => {
     (async function () {
-      const response = await fetch('https://docs.google.com/document/export?format=html&id=11Qi-i4_nDdEo7gN1O3mEG3sx7O6AqX_2hjceeCuE9Vg')
-        .then(data => data.text())
-        console.log(typeof response, response)
+      const response = await fetchCurriculum()
       setReadme(response)
     })()
   }, [])
