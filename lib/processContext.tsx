@@ -1,4 +1,4 @@
-import { processReducer } from "@utils/processReducer"
+import { processReducer } from "@utils/reducers/processReducer"
 import { createContext, useReducer } from "react"
 import { ChildrenType } from "types/global"
 import { ProcessStateTypes, ProcessTypes } from "types/lib/processTypes"

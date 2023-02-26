@@ -2,7 +2,7 @@ import { type Dispatch, createContext } from "react"
 import { useReducer } from "react"
 import { ChildrenType } from "types/global"
 import { WindowDispatchTypes, WindowStateTypes } from "types/lib/windowTypes"
-import reducer from 'utils/windowReducer'
+import reducer from 'utils/reducers/windowReducer'
 
 const windowInitialState: WindowStateTypes = {
   id: '',

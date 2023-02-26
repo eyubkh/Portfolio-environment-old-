@@ -2,7 +2,7 @@ import { WindowProvider } from "lib/windowContext"
 import { Window } from "./Window"
 import data, { aboutMe } from "@utils/data"
 import { useEffect, useState } from "react"
-import { fetchingMarkDown } from "@utils/fetchingMarkDown"
+import { fetchingMarkDown } from "@utils/fetch/fetchingMarkDown"
 
 export const AboutMe = (): JSX.Element => {
   const { title, icon, url } = data[aboutMe]

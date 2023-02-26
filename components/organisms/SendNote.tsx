@@ -3,7 +3,7 @@ import { Window } from "./Window"
 import data, { sendNote } from "@utils/data"
 import styled from "styled-components"
 import {  Black100, Grey200 } from "@utils/tokens"
-import { fetchingEmail } from "@utils/fetchingEmail"
+import { fetchingEmail } from "@utils/fetch/fetchingEmail"
 import { useState } from "react"
 
 const SendNoteComponent = styled.form`

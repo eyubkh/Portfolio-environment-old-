@@ -2,7 +2,7 @@ import { WindowProvider } from "lib/windowContext"
 import { Window } from "./Window"
 import { useEffect, useState } from "react"
 import data, { lim } from "@utils/data"
-import { fetchingMarkDown } from "@utils/fetchingMarkDown"
+import { fetchingMarkDown } from "@utils/fetch/fetchingMarkDown"
 
 export const Lim = () => {
   const { title, icon, url } = data[lim]
