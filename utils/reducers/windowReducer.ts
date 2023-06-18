@@ -15,10 +15,7 @@ const windowReducer: Reducer<WindowStateTypes, WindowDispatchTypes> = (
     case WindowDispatchEnum.INIT: {
       let { height, width } = payload
 
-      let defaultSize = {
-        w: 1400,
-        h: 1000
-      }
+      let defaultSize = { w: 1280, h: 1052.44 }
 
       const frameSize = {
         w: document.body.clientWidth !== 0 ? document.body.clientWidth : defaultSize.w,
