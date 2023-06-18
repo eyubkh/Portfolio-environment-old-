@@ -25,6 +25,7 @@ export function Os() {
       payload: [title, component]
     })
   }, [])
+  
   return (
     <OsComponent>
       {

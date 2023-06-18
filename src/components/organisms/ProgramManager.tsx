@@ -11,6 +11,7 @@ export const ProgramManager = () => {
       <Window
         title={title}
         icon={icon}
+        setfullscreen={true}
       >
         {
           content.map((ref: string): JSX.Element => (<Icon

@@ -10,9 +10,7 @@ const windowReducer: Reducer<WindowStateTypes, WindowDispatchTypes> = (state, ac
 
   switch (type) {
     case WindowDispatchEnum.INIT: {
-      let { id, title, height, width } = payload
-      width = width ? width : state.width
-      height = height ? height : state.height
+      let { height, width} = payload
 
       const possition = {
         x: ((document.body.clientWidth / 2) - (width / 2)) + Math.random() * 50 - 25,
@@ -21,21 +19,19 @@ const windowReducer: Reducer<WindowStateTypes, WindowDispatchTypes> = (state, ac
 
       return {
         ...state,
-        id,
-        title,
-        isLoading: false,
+        ...payload,
+        isloading: false,
         height,
         width,
-        possition,
+        possition: payload.isfullscreen ? { x: 0, y: 0 } : possition,
         lastPossition: possition
-
       }
     }
     case WindowDispatchEnum.FULLSCREEN: {
       return {
         ...state,
-        isFullScreen: !state.isFullScreen,
-        possition: !state.isFullScreen ? { x: 0, y: 0 } : state.lastPossition
+        isfullscreen: !state.isfullscreen,
+        possition: !state.isfullscreen ? { x: 0, y: 0 } : state.lastPossition
       }
     }
     case WindowDispatchEnum.POSSITION: {

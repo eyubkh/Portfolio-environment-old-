@@ -16,7 +16,8 @@ export interface IdType {
 export interface WindowPropsTypes extends ChildrenType, TitleType {
   icon: string,
   setHeight?: number,
-  setWidth?: number
+  setWidth?: number,
+  setfullscreen?: boolean,
 }
 
 export type IconTypes = {

@@ -17,15 +17,15 @@ const WindowComponent = styled.div<any>`
   display: flex;
   flex-direction: column;
   border: 1px solid ${Grey100};
-  display: ${({ minimized, isLoading }) => minimized | isLoading ? 'none' : 'initial'};
-  z-index: ${({ isFocus }) => isFocus ? 2 : 1};
+  display: ${({ minimized, isloading }) => minimized | isloading ? 'none' : 'initial'};
+  z-index: ${({ isfocus }) => isfocus ? 2 : 1};
   overflow: hidden;
-  resize: ${({ isFullScreen }) => isFullScreen ? 'none' : 'both'};
+  resize: ${({ isfullscreen }) => isfullscreen === 'true' ? 'none' : 'both'};
 `
 
-export const Window = ({ title, icon, children, setHeight = 400, setWidth = 700 }: WindowPropsTypes): JSX.Element => {
+export const Window = ({ title, icon, children, setHeight = 400, setWidth = 700, setfullscreen = false }: WindowPropsTypes): JSX.Element => {
   const { windowState, windowDispatch } = useWindowContext()
-  const { isFullScreen, possition, isLoading, height, width } = windowState
+  const { isfullscreen, possition, isloading, height, width } = windowState
 
   const { processState, processDispatch } = useProcessContext()
   const { minimized, id } = processState.processes[title]
@@ -41,19 +41,16 @@ export const Window = ({ title, icon, children, setHeight = 400, setWidth = 700 
         title, 
         id,
         height: setHeight,
-        width: setWidth
+        width: setWidth,
+        isfullscreen: setfullscreen,
       }
     })
   }, [])
 
   return (
     <Draggable
-      disabled={isFullScreen}
+      disabled={isfullscreen}
       handle="strong"
-      defaultPosition={{
-        x: ((document.body.clientWidth / 2) - (width / 2)) + Math.random() * 50 - 25,
-        y: ((document.body.clientHeight / 2) - (height / 2)) + Math.random() * 50 - 25
-      }}
       position={possition}
       onDrag={(event, position: { x: number, y: number}) => {
         handlerOnControlledDrag(position, windowDispatch)
@@ -62,11 +59,11 @@ export const Window = ({ title, icon, children, setHeight = 400, setWidth = 700 
       <WindowComponent
         id={id} 
         onClick={() => handlerOnClickWindowFocus(processDispatch, title)}
-        style={{ 'width': isFullScreen ? '100%' : width + 'px', "height": isFullScreen ? '100%' : height + 'px' }}
-        isLoading={isLoading}
-        isFullScreen={isFullScreen}
+        style={{ 'width': isfullscreen ? '100%' : width + 'px', "height": isfullscreen ? '100%' : height + 'px' }}
+        isloading={isloading}
+        isfullscreen={isfullscreen}
         minimized={minimized}
-        isFocus={processState.windowFocus === title}
+        isfocus={processState.windowFocus === title}
       >
         <WindowHeader />
         <WindowContent>

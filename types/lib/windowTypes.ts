@@ -14,12 +14,12 @@ export interface WindowTypes {
 
 export type WindowStateTypes = {
   id: string,
-  isLoading: boolean,
+  isloading: boolean,
   title: string
   icon: string,
   possition: { x: number, y: number } | undefined,
   lastPossition: any | undefined,
-  isFullScreen: boolean,
+  isfullscreen: boolean,
   width: number,
   height: number,
 }

@@ -1,7 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   experimental: {
-    forceSwcTransforms: true,
+    appDir: true
+  },
+  compiler: {
+    styledComponents: true,
   }
 }
 
