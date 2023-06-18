@@ -57,9 +57,13 @@ export const Window = ({ title, icon, children, setHeight = 400, setWidth = 700,
       }}
     >
       <WindowComponent
-        id={id} 
+        id={id}
         onClick={() => handlerOnClickWindowFocus(processDispatch, title)}
-        style={{ 'width': isfullscreen ? '100%' : width + 'px', "height": isfullscreen ? '100%' : height + 'px' }}
+        style={{ 
+          'width': isfullscreen ? '100%' : width + 'px', 
+          "height": isfullscreen ? '100%' : height + 'px', 
+          'transform': `translate(${(innerWidth / 2) - (width / 2)}px, ${(innerHeight / 2) - (height / 2)}px)` 
+        }}
         isloading={isloading}
         isfullscreen={isfullscreen}
         minimized={minimized}
