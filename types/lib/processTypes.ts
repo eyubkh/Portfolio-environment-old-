@@ -35,3 +35,5 @@ export type ProcessesTypes = {
   },
   minimized: boolean,
 }
+
+export type ProcessDispatcher = (dispatch: ProcessDispatchTypes) => void

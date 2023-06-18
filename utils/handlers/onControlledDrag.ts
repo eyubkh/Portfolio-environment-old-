@@ -1,8 +1,8 @@
-import { WindowDispatchEnum } from "types/lib/windowTypes"
+import { WindowDispatchEnum, WindowDispatchTypes, WindowDispatcher } from "types/lib/windowTypes"
 
-const handlerOnControlledDrag = (possition: any, dispatch: any) => {
+const handlerOnControlledDrag = (possition: { x: number, y: number}, windowDispatch: WindowDispatcher) => {
   const { x, y } = possition
-  dispatch({
+  windowDispatch({
     type: WindowDispatchEnum.POSSITION,
     payload: { x, y }
   })

@@ -13,14 +13,10 @@ export interface IdType {
   id: string
 }
 
-export interface WindowTypes extends ChildrenType, TitleType {
+export interface WindowPropsTypes extends ChildrenType, TitleType {
   icon: string,
   setHeight?: number,
   setWidth?: number
-}
-
-export interface HandlerWindowfocus extends TitleType {
-  processDispatch: Dispatch<ProcessDispatchTypes>
 }
 
 export type IconTypes = {

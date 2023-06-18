@@ -1,3 +1,5 @@
+import { Dispatch } from "react"
+
 export enum WindowDispatchEnum {
   INIT,
   FULLSCREEN,
@@ -5,12 +7,17 @@ export enum WindowDispatchEnum {
   POSSITION
 }
 
+export interface WindowTypes {
+  windowState: WindowStateTypes,
+  windowDispatch: Dispatch<WindowDispatchTypes>
+}
+
 export type WindowStateTypes = {
   id: string,
   isLoading: boolean,
   title: string
   icon: string,
-  possition: { x: number, y: number },
+  possition: { x: number, y: number } | undefined,
   lastPossition: any | undefined,
   isFullScreen: boolean,
   width: number,
@@ -21,3 +28,5 @@ export type WindowDispatchTypes = {
   type: WindowDispatchEnum,
   payload?: any
 }
+
+export type WindowDispatcher = (dispatch: WindowDispatchTypes) => void
