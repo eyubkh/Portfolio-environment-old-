@@ -50,7 +50,10 @@ export const Window = ({ title, icon, children, setHeight = 400, setWidth = 700 
     <Draggable
       disabled={isFullScreen}
       handle="strong"
-      // defaultPosition={}
+      defaultPosition={{
+        x: ((document.body.clientWidth / 2) - (width / 2)) + Math.random() * 50 - 25,
+        y: ((document.body.clientHeight / 2) - (height / 2)) + Math.random() * 50 - 25
+      }}
       position={possition}
       onDrag={(event, position: { x: number, y: number}) => {
         handlerOnControlledDrag(position, windowDispatch)
