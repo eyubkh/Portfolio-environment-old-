@@ -16,7 +16,7 @@ const WindowHeaderComponent = styled.div`
 
 export const WindowHeader = (): JSX.Element => {
   const { windowDispatch } = useWindowContext()
-  
+
   return (
     <WindowHeaderComponent
       onDoubleClick={() => handlerOnClickWindowMaximize(windowDispatch)}

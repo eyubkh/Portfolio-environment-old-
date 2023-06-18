@@ -1,8 +1,8 @@
-import { WindowProvider } from "lib/windowContext"
-import { Window } from "./Window"
-import data, { englicus } from "@utils/data"
-import { useEffect, useState } from "react"
-import { fetchingMarkDown } from "@utils/fetch/fetchingMarkDown"
+import { WindowProvider } from 'lib/windowContext'
+import { Window } from './Window'
+import data, { englicus } from '@utils/data'
+import { useEffect, useState } from 'react'
+import { fetchingMarkDown } from '@utils/fetch/fetchingMarkDown'
 
 export const Englicus = () => {
   const { title, icon, url } = data[englicus]
@@ -15,12 +15,7 @@ export const Englicus = () => {
   }, [])
   return (
     <WindowProvider>
-      <Window
-        title={title}
-        icon={icon}
-        setHeight={600}
-        setWidth={800}
-      >
+      <Window title={title} icon={icon} setHeight={600} setWidth={800}>
         {readme}
       </Window>
     </WindowProvider>

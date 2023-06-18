@@ -1,6 +1,6 @@
-import { Black100, White100 } from "@utils/tokens"
-import styled from "styled-components"
-import { ChildrenType } from "types/global"
+import { Black100, White100 } from '@utils/tokens'
+import styled from 'styled-components'
+import { ChildrenType } from 'types/global'
 
 const WindowContentComponent = styled.div<any>`
   background-color: ${White100};
@@ -13,9 +13,5 @@ const WindowContentComponent = styled.div<any>`
 `
 
 export const WindowContent = ({ children }: ChildrenType): JSX.Element => {
-  return (
-    <WindowContentComponent >
-      {children}
-    </WindowContentComponent>
-  )
+  return <WindowContentComponent>{children}</WindowContentComponent>
 }

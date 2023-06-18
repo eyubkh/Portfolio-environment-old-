@@ -1,6 +1,9 @@
-import { Dispatch } from "react"
-import { ProcessDispatchEnum, ProcessDispatchTypes } from "types/lib/processTypes"
-import { WindowStateTypes } from "types/lib/windowTypes"
+import { Dispatch } from 'react'
+import {
+  ProcessDispatchEnum,
+  ProcessDispatchTypes,
+} from 'types/lib/processTypes'
+import { WindowStateTypes } from 'types/lib/windowTypes'
 
 export function handlerOnClickWindowClose(
   processDispatch: Dispatch<ProcessDispatchTypes>,
@@ -8,6 +11,6 @@ export function handlerOnClickWindowClose(
 ) {
   processDispatch({
     type: ProcessDispatchEnum.DELETE_PROCESSES,
-    payload: windowState.title
+    payload: windowState.title,
   })
 }

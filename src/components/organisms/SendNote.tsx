@@ -1,10 +1,10 @@
-import { WindowProvider } from "lib/windowContext"
-import { Window } from "./Window"
-import data, { sendNote } from "@utils/data"
-import styled from "styled-components"
-import {  Black100, Grey200 } from "@utils/tokens"
-import { fetchingEmail } from "@utils/fetch/fetchingEmail"
-import { useState } from "react"
+import { WindowProvider } from 'lib/windowContext'
+import { Window } from './Window'
+import data, { sendNote } from '@utils/data'
+import styled from 'styled-components'
+import { Black100, Grey200 } from '@utils/tokens'
+import { fetchingEmail } from '@utils/fetch/fetchingEmail'
+import { useState } from 'react'
 
 const SendNoteComponent = styled.form`
   height: 100%;
@@ -69,7 +69,7 @@ const SendNoteComponent = styled.form`
 const initValue = {
   from: '',
   subject: '',
-  text: ''
+  text: '',
 }
 
 export const SendNote = () => {
@@ -80,55 +80,64 @@ export const SendNote = () => {
     event.preventDefault()
     await fetchingEmail(value)
     setValue(initValue)
-  } 
+  }
 
   return (
     <WindowProvider>
-      <Window
-        title={title}
-        icon={icon}
-      > 
-      <SendNoteComponent
-        onSubmit={handlerFormSubmit}
-      >
-        <div id="buttons">
-          <button type="submit">Send</button>
-          <button disabled>Check Names</button>
-          <button disabled>Attach</button>
-          <button disabled>Options</button>
-          <button disabled>Address</button>
-        </div>
+      <Window title={title} icon={icon}>
+        <SendNoteComponent onSubmit={handlerFormSubmit}>
+          <div id="buttons">
+            <button type="submit">Send</button>
+            <button disabled>Check Names</button>
+            <button disabled>Attach</button>
+            <button disabled>Options</button>
+            <button disabled>Address</button>
+          </div>
 
-        <ul id="inputs">
-          <li className="form-row">
-            <label htmlFor="my-email">To:</label>
-            <input type="text" id="my-email" value='eyub.kh@gmail.com' disabled />
-          </li>
-          <li className="form-row">
-            <label htmlFor="email">From:</label>
-            <input 
-              id="email" 
-              type="email" 
-              value={value.from} 
-              onChange={({ target }) => setValue({ ...value, from: target.value})} 
-            />
-          </li>
-          <li className="form-row">
-            <label htmlFor="subject" >Subject:</label>
-            <input 
-              id="subject" 
-              type="text" 
-              value={value.subject} 
-              onChange={({ target }) => setValue({ ...value, subject: target.value})} 
-            />
-          </li>
-        </ul>
-        <textarea 
-          id="textarea"
-          value={value.text} 
-          onChange={({ target }) => setValue({ ...value, text: target.value})} 
-        ></textarea>
-      </SendNoteComponent>
+          <ul id="inputs">
+            <li className="form-row">
+              <label htmlFor="my-email">To:</label>
+              <input
+                type="text"
+                id="my-email"
+                value="eyub.kh@gmail.com"
+                disabled
+              />
+            </li>
+            <li className="form-row">
+              <label htmlFor="email">From:</label>
+              <input
+                id="email"
+                type="email"
+                value={value.from}
+                onChange={({ target }) =>
+                  setValue({ ...value, from: target.value })
+                }
+              />
+            </li>
+            <li className="form-row">
+              <label htmlFor="subject">Subject:</label>
+              <input
+                id="subject"
+                type="text"
+                value={value.subject}
+                onChange={({ target }) =>
+                  setValue({
+                    ...value,
+                    subject: target.value,
+                  })
+                }
+              />
+            </li>
+          </ul>
+          <textarea
+            id="textarea"
+            value={value.text}
+            onChange={({ target }) =>
+              setValue({ ...value, text: target.value })
+            }
+          ></textarea>
+        </SendNoteComponent>
       </Window>
     </WindowProvider>
   )

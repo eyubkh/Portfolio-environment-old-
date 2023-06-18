@@ -1,8 +1,8 @@
-import { WindowProvider } from "lib/windowContext"
-import { Window } from "./Window"
-import data, { aboutMe } from "@utils/data"
-import { useEffect, useState } from "react"
-import { fetchingMarkDown } from "@utils/fetch/fetchingMarkDown"
+import { WindowProvider } from 'lib/windowContext'
+import { Window } from './Window'
+import data, { aboutMe } from '@utils/data'
+import { useEffect, useState } from 'react'
+import { fetchingMarkDown } from '@utils/fetch/fetchingMarkDown'
 
 export const AboutMe = (): JSX.Element => {
   const { title, icon, url } = data[aboutMe]
@@ -16,12 +16,7 @@ export const AboutMe = (): JSX.Element => {
 
   return (
     <WindowProvider>
-      <Window
-        title={title}
-        icon={icon}
-        setHeight={600}
-        setWidth={800}
-      >
+      <Window title={title} icon={icon} setHeight={600} setWidth={800}>
         {readme}
       </Window>
     </WindowProvider>

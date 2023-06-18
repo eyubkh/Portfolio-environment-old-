@@ -1,8 +1,8 @@
-import { WindowProvider } from "lib/windowContext"
-import { Window } from "./Window"
-import { useEffect, useState } from "react"
-import data, { lim } from "@utils/data"
-import { fetchingMarkDown } from "@utils/fetch/fetchingMarkDown"
+import { WindowProvider } from 'lib/windowContext'
+import { Window } from './Window'
+import { useEffect, useState } from 'react'
+import data, { lim } from '@utils/data'
+import { fetchingMarkDown } from '@utils/fetch/fetchingMarkDown'
 
 export const Lim = () => {
   const { title, icon, url } = data[lim]
@@ -15,10 +15,7 @@ export const Lim = () => {
   }, [])
   return (
     <WindowProvider>
-      <Window
-        title={title}
-        icon={icon}
-      >
+      <Window title={title} icon={icon}>
         {readme}
       </Window>
     </WindowProvider>

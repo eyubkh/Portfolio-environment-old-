@@ -1,23 +1,25 @@
-import { type Dispatch, createContext } from "react"
-import { useReducer } from "react"
-import { ChildrenType } from "types/global"
-import { WindowDispatchTypes, WindowStateTypes } from "types/lib/windowTypes"
+import { type Dispatch, createContext } from 'react'
+import { useReducer } from 'react'
+import { ChildrenType } from 'types/global'
+import { WindowDispatchTypes, WindowStateTypes } from 'types/lib/windowTypes'
 import reducer from 'utils/reducers/windowReducer'
 
 const windowInitialState: WindowStateTypes = {
   id: '',
-  isloading:  true,
+  isloading: true,
   possition: undefined,
   lastPossition: undefined,
   isfullscreen: false,
   icon: '',
   title: '',
   height: 400,
-  width: 700
+  width: 700,
 }
 
-export const WindowContext = createContext<any>({ windowState: windowInitialState } as {
-  windowState: WindowStateTypes,
+export const WindowContext = createContext<any>({
+  windowState: windowInitialState,
+} as {
+  windowState: WindowStateTypes
   windowDispatch: Dispatch<WindowDispatchTypes>
 })
 

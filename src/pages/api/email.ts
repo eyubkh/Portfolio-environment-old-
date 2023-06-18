@@ -17,22 +17,22 @@ export default async function handler(
     <p>From: ${from}</p>
     <p>Subject: ${subject} </p>
     <p>${text}</p>
-    `
+    `,
   }
 
   sgMail.setApiKey(process.env.SENDGRID_API_KEY)
-    sgMail  
+  sgMail
     .send(message)
     .then(() => {
       res.status(200).json({
         error: false,
-        message: 'Email send'
+        message: 'Email send',
       })
     })
-  .catch(error => {
+    .catch((error) => {
       res.status(404).json({
         error: true,
-        message: 'Error on send email'
+        message: 'Error on send email',
       })
     })
 }

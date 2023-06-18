@@ -1,6 +1,9 @@
-import { Dispatch } from "react"
-import { ProcessDispatchEnum, ProcessDispatchTypes } from "types/lib/processTypes"
-import { WindowStateTypes } from "types/lib/windowTypes"
+import { Dispatch } from 'react'
+import {
+  ProcessDispatchEnum,
+  ProcessDispatchTypes,
+} from 'types/lib/processTypes'
+import { WindowStateTypes } from 'types/lib/windowTypes'
 
 export const handlerOnClickMinimize = (
   processDispatch: Dispatch<ProcessDispatchTypes>,
@@ -8,6 +11,6 @@ export const handlerOnClickMinimize = (
 ) => {
   processDispatch({
     type: ProcessDispatchEnum.MINIMIZED,
-    payload: [windowState.title, true]
+    payload: [windowState.title, true],
   })
 }

@@ -1,31 +1,31 @@
-import { Dispatch } from "react"
+import { Dispatch } from 'react'
 
 export enum WindowDispatchEnum {
   INIT,
   FULLSCREEN,
   TITLE,
-  POSSITION
+  POSSITION,
 }
 
 export interface WindowTypes {
-  windowState: WindowStateTypes,
+  windowState: WindowStateTypes
   windowDispatch: Dispatch<WindowDispatchTypes>
 }
 
 export type WindowStateTypes = {
-  id: string,
-  isloading: boolean,
+  id: string
+  isloading: boolean
   title: string
-  icon: string,
-  possition: { x: number, y: number } | undefined,
-  lastPossition: any | undefined,
-  isfullscreen: boolean,
-  width: number,
-  height: number,
+  icon: string
+  possition: { x: number; y: number } | undefined
+  lastPossition: any | undefined
+  isfullscreen: boolean
+  width: number
+  height: number
 }
 
 export type WindowDispatchTypes = {
-  type: WindowDispatchEnum,
+  type: WindowDispatchEnum
   payload?: any
 }
 

@@ -8,18 +8,16 @@ export const ProgramManager = () => {
 
   return (
     <WindowProvider>
-      <Window
-        title={title}
-        icon={icon}
-        setfullscreen={true}
-      >
-        {
-          content.map((ref: string): JSX.Element => (<Icon
-            key={crypto.randomUUID()}
-            icon={data[ref].icon}
-            title={data[ref].title}
-          />))
-        }
+      <Window title={title} icon={icon} setfullscreen={true}>
+        {content.map(
+          (ref: string): JSX.Element => (
+            <Icon
+              key={crypto.randomUUID()}
+              icon={data[ref].icon}
+              title={data[ref].title}
+            />
+          )
+        )}
       </Window>
     </WindowProvider>
   )

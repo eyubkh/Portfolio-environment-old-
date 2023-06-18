@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prettier": "npx prettier ./src ./utils ./lib ./types"
   },
   "dependencies": {
     "@sendgrid/mail": "^7.7.0",
@@ -25,6 +26,7 @@
   },
   "devDependencies": {
     "@types/styled-components": "^5.1.26",
-    "eslint-config-prettier": "^8.6.0"
+    "eslint-config-prettier": "^8.6.0",
+    "prettier": "^2.8.8"
   }
 }

@@ -9,8 +9,7 @@ export default async function handler(
   const baseUrl = 'https://raw.githubusercontent.com'
 
   try {
-    const text = await fetch(baseUrl + url)
-      .then(data => data.text())
+    const text = await fetch(baseUrl + url).then((data) => data.text())
 
     const regex = /<div id="desc">([\s\S]*?)<\/div>/
     const result = regex.exec(text)

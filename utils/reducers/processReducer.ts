@@ -1,11 +1,14 @@
-import { Reducer } from "react"
+import { Reducer } from 'react'
 import {
   ProcessDispatchEnum,
   ProcessDispatchTypes,
-  ProcessStateTypes
-} from "types/lib/processTypes"
+  ProcessStateTypes,
+} from 'types/lib/processTypes'
 
-export const processReducer: Reducer<ProcessStateTypes, ProcessDispatchTypes> = (state, action) => {
+export const processReducer: Reducer<
+  ProcessStateTypes,
+  ProcessDispatchTypes
+> = (state, action) => {
   const { type, payload } = action
 
   switch (type) {
@@ -17,9 +20,9 @@ export const processReducer: Reducer<ProcessStateTypes, ProcessDispatchTypes> = 
           ...state.processes,
           [key]: {
             ...state.processes[key],
-            icon: payload
-          }
-        }
+            icon: payload,
+          },
+        },
       }
     }
     case ProcessDispatchEnum.PROCESSES: {
@@ -34,16 +37,16 @@ export const processReducer: Reducer<ProcessStateTypes, ProcessDispatchTypes> = 
             ...state.processes[key],
             id,
             minimized: false,
-            component: payload[1](id)
-          }
-        }
+            component: payload[1](id),
+          },
+        },
       }
     }
     case ProcessDispatchEnum.DELETE_PROCESSES: {
       delete state.processes[payload]
 
       return {
-        ...state
+        ...state,
       }
     }
     case ProcessDispatchEnum.MINIMIZED: {
@@ -56,15 +59,15 @@ export const processReducer: Reducer<ProcessStateTypes, ProcessDispatchTypes> = 
           ...state.processes,
           [title]: {
             ...state.processes[title],
-            minimized: isMinimized
-          }
-        }
+            minimized: isMinimized,
+          },
+        },
       }
     }
     case ProcessDispatchEnum.WINDOW_FOCUS: {
       return {
         ...state,
-        windowFocus: payload
+        windowFocus: payload,
       }
     }
     default: {

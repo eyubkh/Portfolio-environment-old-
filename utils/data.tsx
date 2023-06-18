@@ -1,10 +1,10 @@
-import { AboutMe } from "src/components/organisms/AboutMe"
-import { Curriculum } from "src/components/organisms/Curriculum"
-import { Englicus } from "src/components/organisms/Englicus"
-import { Lim } from "src/components/organisms/Lim"
-import { ProgramManager } from "src/components/organisms/ProgramManager"
-import { Projects } from "src/components/organisms/Projects"
-import { SendNote } from "src/components/organisms/SendNote"
+import { AboutMe } from 'src/components/organisms/AboutMe'
+import { Curriculum } from 'src/components/organisms/Curriculum'
+import { Englicus } from 'src/components/organisms/Englicus'
+import { Lim } from 'src/components/organisms/Lim'
+import { ProgramManager } from 'src/components/organisms/ProgramManager'
+import { Projects } from 'src/components/organisms/Projects'
+import { SendNote } from 'src/components/organisms/SendNote'
 
 export const aboutMe: string = 'About Me'
 export const sendNote: string = 'Send Note'
@@ -14,46 +14,45 @@ export const englicus: string = 'Englicus'
 export const lim: string = 'Lim'
 export const curriculum: string = 'Curiculum'
 
-
 export default {
   [aboutMe]: {
     title: aboutMe,
     icon: '/icons/PROGM024.ICO',
     component: (id: string) => <AboutMe key={id} />,
-    url: '/eyubkh/Portfolio/main/README.md'
+    url: '/eyubkh/Portfolio/main/README.md',
   },
   [sendNote]: {
     title: sendNote,
     icon: '/icons/MSMAI001.ICO',
-    component: (id: string) => <SendNote key={id} />
+    component: (id: string) => <SendNote key={id} />,
   },
   [programManager]: {
     title: programManager,
     icon: '/icons/PROGM008.ICO',
     component: (id: string) => <ProgramManager key={id} />,
-    content: [aboutMe, projects, sendNote, curriculum]
+    content: [aboutMe, projects, sendNote, curriculum],
   },
   [projects]: {
     title: projects,
     icon: '/icons/PROGM008.ICO',
     component: (id: string) => <Projects key={id} />,
-    content: [englicus, lim]
+    content: [englicus, lim],
   },
   [englicus]: {
     title: englicus,
     icon: '/icons/COMMD001.ICO',
     url: '/eyubkh/Englicus/main/README.md',
-    component: (id: string) => <Englicus key={id} />
+    component: (id: string) => <Englicus key={id} />,
   },
   [lim]: {
     title: lim,
     icon: '/icons/COMMD001.ICO',
     url: '/eyubkh/Lim/main/README.md',
-    component: (id: string) => <Lim key={id} />
+    component: (id: string) => <Lim key={id} />,
   },
   [curriculum]: {
     title: curriculum,
     icon: '/icons/COMMD001.ICO',
-    component: (id: string) => <Curriculum key={id} />
-  }
+    component: (id: string) => <Curriculum key={id} />,
+  },
 }
