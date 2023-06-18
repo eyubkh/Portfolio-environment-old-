@@ -13,9 +13,10 @@ const windowReducer: Reducer<WindowStateTypes, WindowDispatchTypes> = (state, ac
       let { id, title, height, width } = payload
       width = width ? width : state.width
       height = height ? height : state.height
+
       const possition = {
-        x: (window.innerWidth / 2) - (width / 2) + Math.random() * 50 - 25,
-        y:(window.innerHeight / 2) - (height / 2) + Math.random() * 50 - 25
+        x: ((document.body.clientWidth / 2) - (width / 2)) + Math.random() * 50 - 25,
+        y: ((document.body.clientHeight / 2) - (height / 2)) + Math.random() * 50 - 25
       }
 
       return {

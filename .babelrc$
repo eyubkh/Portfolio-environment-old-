@@ -1,5 +1,0 @@
-// // removing styled-components error "Prop `className` did not match. Server"
-// {
-//   "presets": ["next/babel"],
-//   "plugins": [["styled-components", { "ssr": true }]]
-// }

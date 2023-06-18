@@ -1,7 +1,7 @@
 import { Window } from './Window'
 import { WindowProvider } from 'lib/windowContext'
 import data, { programManager } from '@utils/data'
-import { Icon } from 'components/molecules/Icon'
+import { Icon } from 'src/components/molecules/Icon'
 
 export const ProgramManager = () => {
   const { title, icon, content = [] } = data[programManager]

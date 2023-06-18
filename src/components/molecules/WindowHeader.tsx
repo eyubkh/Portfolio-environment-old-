@@ -1,11 +1,11 @@
 import styled from 'styled-components'
 import { Black100 } from '@utils/tokens'
-import { WindowClose } from 'components/atoms/WindowClose'
-import { WindowMinimize } from 'components/atoms/WindowMinimize'
-import { WindowTitle } from 'components/atoms/WindowTitle'
+import { WindowClose } from 'src/components/atoms/WindowClose'
+import { WindowMinimize } from 'src/components/atoms/WindowMinimize'
+import { WindowTitle } from 'src/components/atoms/WindowTitle'
 import useWindowContext from '@utils/hooks/useWindowContext'
 import { handlerOnClickWindowMaximize } from '@utils/handlers/onClickWindowMaximize'
-import { WindowMaximize } from 'components/atoms/WindowMaximize'
+import { WindowMaximize } from 'src/components/atoms/WindowMaximize'
 
 const WindowHeaderComponent = styled.div`
   display: flex;

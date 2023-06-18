@@ -1,7 +1,7 @@
 import styled from "styled-components"
 import Draggable from "react-draggable"
-import { WindowContent } from "components/molecules/WindowContent"
-import { WindowHeader } from "components/molecules/WindowHeader"
+import { WindowContent } from "src/components/molecules/WindowContent"
+import { WindowHeader } from "src/components/molecules/WindowHeader"
 import { useEffect } from "react"
 import { WindowDispatchEnum } from "types/lib/windowTypes"
 import { WindowTypes } from "types/global"
@@ -46,13 +46,6 @@ export const Window = ({ title, icon, children, setHeight, setWidth }: WindowTyp
     })
   }, [])
 
-  const props = {
-    isLoading,
-    isFullScreen,
-    minimized,
-    isFocus: processState.windowFocus === title
-  }
-
   return (
     <Draggable
       disabled={isFullScreen}
@@ -66,7 +59,10 @@ export const Window = ({ title, icon, children, setHeight, setWidth }: WindowTyp
         id={id} 
         onClick={() => handlerOnClickWindowFocus({ processDispatch, title })}
         style={{ 'width': isFullScreen ? '100%' : width + 'px', "height": isFullScreen ? '100%' : height + 'px' }}
-        {...props}
+        isLoading={isLoading}
+        isFullScreen={isFullScreen}
+        minimized={minimized}
+        isFocus={processState.windowFocus === title}
       >
         <WindowHeader />
         <WindowContent>

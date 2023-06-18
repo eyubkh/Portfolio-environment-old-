@@ -1,10 +1,10 @@
-import { AboutMe } from "components/organisms/AboutMe"
-import { Curriculum } from "components/organisms/Curriculum"
-import { Englicus } from "components/organisms/Englicus"
-import { Lim } from "components/organisms/Lim"
-import { ProgramManager } from "components/organisms/ProgramManager"
-import { Projects } from "components/organisms/Projects"
-import { SendNote } from "components/organisms/SendNote"
+import { AboutMe } from "src/components/organisms/AboutMe"
+import { Curriculum } from "src/components/organisms/Curriculum"
+import { Englicus } from "src/components/organisms/Englicus"
+import { Lim } from "src/components/organisms/Lim"
+import { ProgramManager } from "src/components/organisms/ProgramManager"
+import { Projects } from "src/components/organisms/Projects"
+import { SendNote } from "src/components/organisms/SendNote"
 
 export const aboutMe: string = 'About Me'
 export const sendNote: string = 'Send Note'
