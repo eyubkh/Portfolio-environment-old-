@@ -4,7 +4,6 @@ import {
   ProcessDispatchTypes,
   ProcessStateTypes
 } from "types/lib/processTypes"
-import { uuid as uuid_v4 } from "uuidv4"
 
 export const processReducer: Reducer<ProcessStateTypes, ProcessDispatchTypes> = (state, action) => {
   const { type, payload } = action
@@ -25,7 +24,7 @@ export const processReducer: Reducer<ProcessStateTypes, ProcessDispatchTypes> = 
     }
     case ProcessDispatchEnum.PROCESSES: {
       const key = payload[0]
-      const id = uuid_v4()
+      const id = crypto.randomUUID()
 
       return {
         ...state,
