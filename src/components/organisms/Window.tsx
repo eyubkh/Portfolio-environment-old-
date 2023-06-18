@@ -31,6 +31,10 @@ export const Window = ({ title, icon, children, setHeight = 400, setWidth = 700 
   const { minimized, id } = processState.processes[title]
 
   useEffect(() => {
+    processDispatch({
+      type: ProcessDispatchEnum.INIT,
+      payload: { icon, title }
+    })
     windowDispatch({
       type: WindowDispatchEnum.INIT,
       payload: { 
@@ -40,16 +44,13 @@ export const Window = ({ title, icon, children, setHeight = 400, setWidth = 700 
         width: setWidth
       }
     })
-    processDispatch({
-      type: ProcessDispatchEnum.INIT,
-      payload: { icon, title }
-    })
   }, [])
 
   return (
     <Draggable
       disabled={isFullScreen}
       handle="strong"
+      // defaultPosition={}
       position={possition}
       onDrag={(event, position: { x: number, y: number}) => {
         handlerOnControlledDrag(position, windowDispatch)
