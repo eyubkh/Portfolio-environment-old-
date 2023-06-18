@@ -23,7 +23,7 @@ export const WindowTitle = (): JSX.Element => {
 
   return (
     <WindowTitleComponent
-      isfocus={processState.windowFocus === windowState.title}
+      isfocus={(processState.windowFocus === windowState.title) ? 1 : 0}
     >
       <h3>{windowState.title}</h3>
     </WindowTitleComponent>

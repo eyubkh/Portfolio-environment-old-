@@ -15,10 +15,19 @@ const windowReducer: Reducer<WindowStateTypes, WindowDispatchTypes> = (
     case WindowDispatchEnum.INIT: {
       let { height, width } = payload
 
+      let defaultSize = {
+        w: 1400,
+        h: 1000
+      }
+
+      const frameSize = {
+        w: document.body.clientWidth !== 0 ? document.body.clientWidth : defaultSize.w,
+        h: document.body.clientHeight !== 0 ? document.body.clientHeight : defaultSize.h
+      } 
+
       const possition = {
-        x: document.body.clientWidth / 2 - width / 2 + Math.random() * 50 - 25,
-        y:
-          document.body.clientHeight / 2 - height / 2 + Math.random() * 50 - 25,
+        x: frameSize.w / 2 - width / 2 + Math.random() * 50 - 25,
+        y: frameSize.h / 2 - height / 2 + Math.random() * 50 - 25,
       }
 
       return {

@@ -71,10 +71,10 @@ export const Window = ({
           width: isfullscreen ? '100%' : width + 'px',
           height: isfullscreen ? '100%' : height + 'px',
         }}
-        minimized={minimized}
-        isloading={isloading}
-        isfullscreen={isfullscreen}
-        isfocus={processState.windowFocus === title}
+        minimized={minimized ? 1 : 0}
+        isloading={isloading ? 1 : 0}
+        isfullscreen={isfullscreen ? 1 : 0}
+        isfocus={(processState.windowFocus === title) ? 1 : 0}
       >
         <WindowHeader />
         <WindowContent>{children}</WindowContent>

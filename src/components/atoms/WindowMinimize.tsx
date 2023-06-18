@@ -12,7 +12,7 @@ const WindowMinimizeComponent = styled.div`
   background-color: ${Grey200};
   cursor: pointer;
 
-  :after {
+  &::after {
     content: '';
     position: absolute;
     height: 1px;

@@ -13,7 +13,7 @@ const WindowCloseComponent = styled.div`
   cursor: pointer;
   display: block;
 
-  :after {
+  &::after {
     content: '';
     position: absolute;
     height: 1px;

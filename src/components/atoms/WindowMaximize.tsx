@@ -11,7 +11,7 @@ const WindowMaximizeComponent = styled.div`
   cursor: pointer;
   border-left: 1px solid ${Black100};
 
-  :after {
+  &::after {
     content: '';
     position: absolute;
     height: 1px;

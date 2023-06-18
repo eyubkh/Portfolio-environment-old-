@@ -1,6 +1,3 @@
-import { Dispatch } from 'react'
-import { ProcessDispatchTypes } from './lib/processTypes'
-
 export interface ChildrenType {
   children: JSX.Element | JSX.Element[]
 }
@@ -25,3 +22,5 @@ export type IconTypes = {
   title: string
   handler?: any
 }
+
+export type ColorType = `#${string}`
