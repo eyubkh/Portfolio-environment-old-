@@ -8,7 +8,7 @@ export const ProgramManager = () => {
 
   return (
     <WindowProvider>
-      <Window title={title} icon={icon} setfullscreen={true}>
+      <Window title={title} icon={icon}>
         {content.map(
           (ref: string): JSX.Element => (
             <Icon

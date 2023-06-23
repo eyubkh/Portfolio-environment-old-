@@ -1,0 +1,46 @@
+.doc-content {
+  padding: 38px 32px;
+}
+
+.doc-content ul {
+  margin-top: 5px;
+  margin-left: 15px;
+}
+
+.doc-content p {
+  margin-top: 15px;
+}
+
+.doc-content .title {
+  font-size: xx-large;
+  font-family: 'Sant-serif';
+  font-weight: bold;
+}
+.doc-content .subtitle {
+  margin-top: 10px;
+  font-size: large;
+  font-family: 'Sant-serif';
+  font-weight: bold;
+}
+
+.doc-content .title {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.doc-content .title span:last-child {
+  font-size: medium;
+}
+
+.doc-content p:nth-child(3) {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.doc-content p:nth-child(1)  {
+  display: flex;
+  justify-content: space-between;
+}
