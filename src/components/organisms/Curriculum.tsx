@@ -3,18 +3,18 @@ import { Window } from './Window'
 import data, { curriculum } from '@utils/data'
 import { useEffect, useState } from 'react'
 import React from 'react'
-import { fetchCurriculum } from '@utils/fetch/fetchingCurriculum'
+import { fetchExternalData } from '@utils/fetch/fetchingExternalData'
 
 export const Curriculum = (): JSX.Element => {
-  const { title, icon } = data[curriculum]
+  const { title, icon, url } = data[curriculum]
   const [readme, setReadme] = useState<any | null>(null)
 
   useEffect(() => {
     (async function () {
-      const response = await fetchCurriculum()
+      const response = await fetchExternalData(url, true)
       setReadme(response)
     })()
-  }, [])
+  }, [url])
 
   return (
     <WindowProvider>

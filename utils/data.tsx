@@ -18,8 +18,8 @@ const data = {
   [aboutMe]: {
     title: aboutMe,
     icon: '/icons/PROGM024.ICO',
+    url: 'https://raw.githubusercontent.com/eyubkh/Portfolio/main/README.md',
     component: (id: string) => <AboutMe key={id} />,
-    url: '/eyubkh/Portfolio/main/README.md',
   },
   [sendNote]: {
     title: sendNote,
@@ -54,6 +54,7 @@ const data = {
     title: curriculum,
     icon: '/icons/COMMD001.ICO',
     component: (id: string) => <Curriculum key={id} />,
+    url: "https://docs.google.com/document/export?format=html&id=1KO8NvYvFAEpxQ_4v23xsVdcv3B1bfly-67-O0opw_VI"
   },
 }
 
