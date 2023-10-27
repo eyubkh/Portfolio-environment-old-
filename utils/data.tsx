@@ -14,7 +14,7 @@ export const englicus: string = 'Englicus'
 export const lim: string = 'Lim'
 export const curriculum: string = 'Curiculum'
 
-export default {
+const data = {
   [aboutMe]: {
     title: aboutMe,
     icon: '/icons/PROGM024.ICO',
@@ -41,13 +41,13 @@ export default {
   [englicus]: {
     title: englicus,
     icon: '/icons/COMMD001.ICO',
-    url: '/eyubkh/Englicus/main/README.md',
+    url: 'https://raw.githubusercontent.com/eyubkh/Englicus/main/README.md',
     component: (id: string) => <Englicus key={id} />,
   },
   [lim]: {
     title: lim,
     icon: '/icons/COMMD001.ICO',
-    url: '/eyubkh/Lim/main/README.md',
+    url: 'https://raw.githubusercontent.com/eyubkh/Lim/main/README.md',
     component: (id: string) => <Lim key={id} />,
   },
   [curriculum]: {
@@ -56,3 +56,5 @@ export default {
     component: (id: string) => <Curriculum key={id} />,
   },
 }
+
+export default data
